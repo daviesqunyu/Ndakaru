@@ -23,13 +23,13 @@
         }
 
         header {
-            background: linear-gradient(135deg, #0f2410 0%, #1e4d1f 50%, #2c5f2d 100%);
+            background: linear-gradient(135deg, #0f3d10 0%, #1e4d1f 30%, #2c5f2d 70%, #3d7a3f 100%);
             color: white;
-            padding: 2.5rem 0 2rem 0;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+            padding: 4rem 0 3rem;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid rgba(255,255,255,0.1);
+            border-bottom: 4px solid rgba(255,255,255,0.2);
         }
 
         header::before {
@@ -39,8 +39,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+            opacity: 1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
 
         header .container {
@@ -48,34 +60,24 @@
             z-index: 1;
         }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .header-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .header-badge {
             display: inline-block;
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
-            padding: 0.5rem 1.25rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255,255,255,0.2);
-            text-transform: uppercase;
-        }
-
-        .header-location {
             font-size: 0.9rem;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .container {
@@ -85,40 +87,70 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            letter-spacing: -0.8px;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
             line-height: 1.2;
         }
 
         header .tagline {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             opacity: 0.95;
             font-weight: 500;
             letter-spacing: 0.2px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
-        header .location-text {
-            font-size: 0.95rem;
+        header .location {
+            font-size: 1rem;
             opacity: 0.85;
             font-weight: 400;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+        }
+
+        .header-stats {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .header-stat {
+            text-align: center;
+        }
+
+        .header-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav {
-            background: rgba(26, 58, 27, 0.98);
-            padding: 1rem 0;
+            background: #1a3a1b;
+            padding: 1.25rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
         }
 
         nav ul {
@@ -192,12 +224,13 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #1e4d1f 0%, #2c5f2d 50%, #3d7a3f 100%);
-            color: white;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+            color: #2d3436;
             text-align: center;
-            padding: 5rem 0 4rem 0;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid #e9ecef;
         }
 
         .hero::before {
@@ -206,111 +239,99 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="120" height="120" fill="url(%23dots)"/></svg>');
-            opacity: 0.5;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5f2d, #4a7c4e, #2c5f2d);
         }
 
         .hero .container {
             position: relative;
             z-index: 1;
+            max-width: 1000px;
         }
 
         .hero h2 {
-            color: white;
+            color: #1e4d1f;
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.8px;
-            text-shadow: 0 3px 25px rgba(0,0,0,0.4);
             line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.25rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.75;
-            opacity: 0.95;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            color: #555;
             font-weight: 400;
         }
 
         .hero-cta {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             margin-top: 2.5rem;
         }
 
         .hero-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(44, 95, 45, 0.25);
         }
 
         .hero-button-primary {
-            background: white;
-            color: #1e4d1f;
+            background: linear-gradient(135deg, #2c5f2d 0%, #1e4d1f 100%);
+            color: white;
         }
 
         .hero-button-primary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #1e4d1f 0%, #1a3a1b 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(44, 95, 45, 0.35);
         }
 
         .hero-button-secondary {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
+            background: white;
+            color: #2c5f2d;
+            border: 2px solid #2c5f2d;
         }
 
         .hero-button-secondary:hover {
-            background: rgba(255,255,255,0.25);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
+            background: #2c5f2d;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44, 95, 45, 0.25);
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        .trust-badges {
+            display: flex;
+            justify-content: center;
             gap: 2rem;
-            margin-top: 3.5rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            padding-top: 2.5rem;
+            border-top: 1px solid #e9ecef;
         }
 
-        .hero-stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #555;
+            font-size: 0.95rem;
         }
 
-        .hero-stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .trust-badge-icon {
+            font-size: 1.5rem;
         }
 
         .stats {
@@ -568,6 +589,18 @@
 
         @media (max-width: 768px) {
             header h1 {
+                font-size: 2.2rem;
+            }
+
+            header .tagline {
+                font-size: 1.1rem;
+            }
+
+            .header-stats {
+                gap: 2rem;
+            }
+
+            .header-stat-number {
                 font-size: 2rem;
             }
             
@@ -579,27 +612,18 @@
                 font-size: 1.1rem;
             }
 
-            .hero-button {
-                padding: 0.875rem 2rem;
-                font-size: 1rem;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .hero-stat-number {
-                font-size: 2rem;
-            }
-
-            .header-top {
+            .hero-cta {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
-            header h1 {
-                font-size: 2rem;
+            .hero-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             nav ul {
@@ -633,13 +657,31 @@
 <body>
     <header>
         <div class="container">
-            <div class="header-top">
+            <div class="header-content">
                 <div class="header-badge">🌍 Community Development Initiative</div>
-                <div class="header-location">📍 Bungoma County, Kenya</div>
+                <h1>Ndakaru Community Brick Manufacturing</h1>
+                <p class="tagline">Empowering Women & Youth Through Sustainable Employment</p>
+                <p class="location">📍 Ndakaru Village, Sirisia Sub-County, Bungoma County, Kenya</p>
+                
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="header-stat-number">25</span>
+                        <span class="header-stat-label">Lives Impacted</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">2+</span>
+                        <span class="header-stat-label">Years Operating</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">12+</span>
+                        <span class="header-stat-label">Homes Built</span>
+                    </div>
+                    <div class="header-stat">
+                        <span class="header-stat-number">100%</span>
+                        <span class="header-stat-label">Community Owned</span>
+                    </div>
+                </div>
             </div>
-            <h1>Ndakaru Community Brick Manufacturing</h1>
-            <p class="tagline">Empowering Women & Youth Through Sustainable Employment</p>
-            <p class="location-text">Ndakaru Village, Sirisia Sub-County, Bungoma County, Kenya</p>
         </div>
     </header>
 
@@ -656,30 +698,30 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Building Communities, One Brick at a Time</h2>
-            <p>For the past 2 years, we've been creating sustainable employment opportunities for women and youth through environmentally friendly brick manufacturing. Your support can help us expand our impact and transform more lives in rural Kenya.</p>
+            <h2>Transforming Lives Through Sustainable Brick Manufacturing</h2>
+            <p>We are a community-driven initiative providing dignified employment and skills development for women and youth in rural Kenya. Through environmentally friendly brick manufacturing, we're building not just homes, but futures—creating economic stability and empowering families to break the cycle of poverty.</p>
             
             <div class="hero-cta">
                 <a href="#support" class="hero-button hero-button-primary">Support Our Mission</a>
-                <a href="#gallery" class="hero-button hero-button-secondary">View Our Work</a>
+                <a href="#gallery" class="hero-button hero-button-secondary">See Our Impact</a>
             </div>
 
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">25</div>
-                    <div class="hero-stat-label">People Employed</div>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Transparent Operations</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">10</div>
-                    <div class="hero-stat-label">Women Empowered</div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Direct Community Impact</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">12+</div>
-                    <div class="hero-stat-label">Homes Built</div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Sustainable & Ethical</span>
                 </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">2+</div>
-                    <div class="hero-stat-label">Years Operating</div>
+                <div class="trust-badge">
+                    <span class="trust-badge-icon">✓</span>
+                    <span>Verified Results</span>
                 </div>
             </div>
         </div>
