@@ -200,6 +200,11 @@
             background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
         }
 
+        /* Compact sections from founder downward */
+        #founder ~ section {
+            padding: 2.5rem 0;
+        }
+
         h2 {
             font-size: 2.5rem;
             color: #1e4d1f;
@@ -209,6 +214,12 @@
             letter-spacing: -0.5px;
             position: relative;
             padding-bottom: 1rem;
+        }
+
+        #founder ~ section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
         }
 
         h2::after {
@@ -337,16 +348,16 @@
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
         }
 
         .stat-box {
             background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
+            padding: 1.75rem;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(44, 95, 45, 0.1);
         }
@@ -358,9 +369,9 @@
         }
 
         .stat-box h3 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #1e4d1f;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, #1e4d1f, #2c5f2d);
             -webkit-background-clip: text;
@@ -370,7 +381,7 @@
 
         .stat-box p {
             color: #555;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 
@@ -434,19 +445,19 @@
 
         .objectives {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
         }
 
         .objective-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-left: 5px solid #2c5f2d;
+            padding: 1.75rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-left: 4px solid #2c5f2d;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid rgba(44, 95, 45, 0.1);
-            border-left: 5px solid #2c5f2d;
+            border-left: 4px solid #2c5f2d;
         }
 
         .objective-card:hover {
@@ -457,29 +468,41 @@
 
         .objective-card h3 {
             color: #1e4d1f;
-            margin-bottom: 1.25rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.875rem;
+            font-size: 1.25rem;
             font-weight: 600;
         }
 
         .objective-card p {
             color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .support-box {
             background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             max-width: 850px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
             border: 1px solid rgba(44, 95, 45, 0.1);
         }
 
+        .support-box h3 {
+            font-size: 1.25rem;
+        }
+
+        .support-box p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.875rem;
+        }
+
         .support-box ul {
-            margin: 1rem 0 1rem 2rem;
+            margin: 0.875rem 0 0.875rem 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         .support-box li {
@@ -490,15 +513,15 @@
             display: inline-block;
             background: linear-gradient(135deg, #2c5f2d 0%, #1e4d1f 100%);
             color: white;
-            padding: 1.25rem 2.5rem;
+            padding: 0.875rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(44, 95, 45, 0.3);
-            letter-spacing: 0.5px;
-            font-size: 1.1rem;
+            box-shadow: 0 4px 16px rgba(44, 95, 45, 0.25);
+            letter-spacing: 0.3px;
+            font-size: 1rem;
         }
 
         .cta-button:hover {
@@ -509,18 +532,22 @@
 
         .contact-info {
             background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             max-width: 650px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
             border: 1px solid rgba(44, 95, 45, 0.1);
         }
 
+        .contact-info h3 {
+            font-size: 1.35rem;
+        }
+
         .contact-info p {
-            margin-bottom: 1.25rem;
-            font-size: 1.15rem;
-            line-height: 1.8;
+            margin-bottom: 0.875rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .contact-info strong {
@@ -587,57 +614,218 @@
             font-weight: 500;
         }
 
-        /* Founder section */
+        /* Founder section - compact and formal */
         .founder-section {
             background: #f8f9fa;
-            padding: 4rem 0;
+            padding: 2.5rem 0;
         }
 
         .founder-card {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.75rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: start;
             max-width: 1000px;
             margin: 0 auto;
             background: #ffffff;
-            border-radius: 18px;
-            padding: 2.75rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             border: 1px solid #e9ecef;
         }
 
         .founder-photo {
             width: 100%;
-            max-width: 360px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            max-width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: block;
             margin: 0 auto;
         }
 
         .founder-meta {
             color: #1e4d1f;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.3px;
         }
 
         .founder-text p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #444;
-            margin-bottom: 1rem;
-            line-height: 1.8;
+            margin-bottom: 0.875rem;
+            line-height: 1.7;
         }
 
         .founder-highlight {
             background: #e8f5e9;
-            border-left: 4px solid #2c5f2d;
-            padding: 0.9rem 1rem;
-            border-radius: 10px;
+            border-left: 3px solid #2c5f2d;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
             color: #2c5f2d;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Compact section styles */
+        .impact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .impact-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .impact-card h3 {
+            color: #1e4d1f;
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-top: 0.5rem;
+        }
+
+        .impact-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .testimonial-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .testimonial-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .transparency-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .transparency-box p {
+            color: #555;
+            margin-bottom: 0.875rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .transparency-box ul {
+            color: #555;
+            margin-left: 1.25rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .transparency-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-box {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .cta-box p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-tag {
+            background: #e8f5e9;
+            color: #1e4d1f;
+            padding: 0.5rem 0.875rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .social-box {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+        }
+
+        .social-box p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            background: #2c5f2d;
+            color: white;
+            padding: 0.625rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #1e4d1f;
         }
 
         @media (max-width: 768px) {
@@ -899,10 +1087,10 @@
             <h2>From the Founder</h2>
             <div class="founder-card">
                 <div>
-                    <img src="WhatsApp Image 2025-12-08 at 15.17.21_01449506.jpg" alt="Founder Mildred Nasipuondi Wepukhulu" class="founder-photo">
+                    <img src="WhatsApp Image 2025-12-08 at 15.17.21_01449506.jpg" alt="Founder Mildred Nasipwondi Wepukhulu" class="founder-photo">
                 </div>
                 <div class="founder-text">
-                    <div class="founder-meta">Mildred Nasipuondi Wepukhulu — Founder & Project Lead</div>
+                    <div class="founder-meta">Mildred Nasipwondi Wepukhulu — Founder & Project Lead</div>
                     <p>
                         “Welcome to Ndakaru Community Brick Manufacturing Initiative. I grew up in Ndakaru Village seeing families struggle with basic needs and lack of stable income. I believe everyone—especially women and youth—deserve a chance to build a better life with dignity.
                     </p>
@@ -918,84 +1106,84 @@
         </div>
     </section>
 
-    <section id="impact" style="padding: 4rem 0;">
+    <section id="impact">
         <div class="container">
             <h2>Impact & Transparency</h2>
-            <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <h3 style="color: #1e4d1f; margin-bottom: 0.75rem;">Stories & Case Studies</h3>
-                    <p style="color: #555;">Before/after stories from women and youth whose lives changed after joining, with short quotes and photos (with permission).</p>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>Stories & Case Studies</h3>
+                    <p>Before/after stories from women and youth whose lives changed after joining, with short quotes and photos (with permission).</p>
                 </div>
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <h3 style="color: #1e4d1f; margin-bottom: 0.75rem;">Numbers & Outcomes</h3>
-                    <p style="color: #555;">Breakdown beyond “25 lives impacted”: e.g., X women earn KES Y per month, Z families gained permanent housing. Use infographics for clarity.</p>
+                <div class="impact-card">
+                    <h3>Numbers & Outcomes</h3>
+                    <p>Breakdown beyond "25 lives impacted": e.g., X women earn KES Y per month, Z families gained permanent housing. Use infographics for clarity.</p>
                 </div>
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <h3 style="color: #1e4d1f; margin-bottom: 0.75rem;">Financial Transparency</h3>
-                    <p style="color: #555;">Simple “Where Your Money Goes” breakdown: tools, equipment, materials, safety gear—builds trust with funders.</p>
+                <div class="impact-card">
+                    <h3>Financial Transparency</h3>
+                    <p>Simple "Where Your Money Goes" breakdown: tools, equipment, materials, safety gear—builds trust with funders.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="social-proof" style="background: #f8f9fa; padding: 4rem 0;">
+    <section id="social-proof" style="background: #f8f9fa;">
         <div class="container">
             <h2>Testimonials & Social Proof</h2>
-            <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <p style="color: #555;">“Because of this project, I can now earn steady income and support my children’s school fees.” — <strong>Grace, production lead</strong></p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Because of this project, I can now earn steady income and support my children's school fees." — <strong>Grace, production lead</strong></p>
                 </div>
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <p style="color: #555;">“These bricks helped us finish our home in time for the rains.” — <strong>Local family</strong></p>
+                <div class="testimonial-card">
+                    <p>"These bricks helped us finish our home in time for the rains." — <strong>Local family</strong></p>
                 </div>
-                <div style="background: #ffffff; padding: 1.75rem; border-radius: 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                    <p style="color: #555;">Add photos (with consent) and short day-in-the-life clips to keep the human stories front and center.</p>
+                <div class="testimonial-card">
+                    <p>Add photos (with consent) and short day-in-the-life clips to keep the human stories front and center.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="transparency" style="background: #f8f9fa; padding: 4rem 0;">
+    <section id="transparency" style="background: #f8f9fa;">
         <div class="container">
             <h2>Use of Funds</h2>
-            <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 14px; padding: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                <p style="color: #555; margin-bottom: 1rem;">Planned budget for support packages (examples):</p>
-                <ul style="color: #555; margin-left: 1.25rem; line-height: 1.8;">
+            <div class="transparency-box">
+                <p>Planned budget for support packages (examples):</p>
+                <ul>
                     <li>KES 10,000: Safety equipment for 5 workers.</li>
                     <li>KES 50,000: Builds one drying shed bay.</li>
                     <li>KES 180,000 - 450,000: Full package for molds, press, drying shelter, and protective gear.</li>
                 </ul>
-                <p style="color: #555; margin-top: 1rem;">Security and trust: clear contact info, community endorsements, and transparent reporting on outcomes.</p>
+                <p style="margin-top: 0.875rem;">Security and trust: clear contact info, community endorsements, and transparent reporting on outcomes.</p>
             </div>
         </div>
     </section>
 
-    <section id="cta" style="padding: 4rem 0;">
+    <section id="cta">
         <div class="container">
             <h2>Support / Donate / Partner</h2>
-            <div style="max-width: 850px; margin: 0 auto; text-align: center; background: white; border-radius: 14px; padding: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                <p style="color: #555; margin-bottom: 1.25rem;">We make it easy for supporters to act. Choose a suggested package or reach out directly for partnership.</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.5rem;">
-                    <span style="background: #e8f5e9; color: #1e4d1f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 600;">Safety Kit: KES 10,000</span>
-                    <span style="background: #e8f5e9; color: #1e4d1f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 600;">Drying Shed Bay: KES 50,000</span>
-                    <span style="background: #e8f5e9; color: #1e4d1f; padding: 0.65rem 1rem; border-radius: 999px; font-weight: 600;">Full Support: KES 180,000 - 450,000</span>
+            <div class="cta-box">
+                <p>We make it easy for supporters to act. Choose a suggested package or reach out directly for partnership.</p>
+                <div class="cta-tags">
+                    <span class="cta-tag">Safety Kit: KES 10,000</span>
+                    <span class="cta-tag">Drying Shed Bay: KES 50,000</span>
+                    <span class="cta-tag">Full Support: KES 180,000 - 450,000</span>
                 </div>
                 <a href="#contact" class="cta-button">Contact Us to Give</a>
             </div>
         </div>
     </section>
 
-    <section id="social" style="background: #f8f9fa; padding: 4rem 0;">
+    <section id="social" style="background: #f8f9fa;">
         <div class="container">
             <h2>Stay Connected</h2>
-            <div style="max-width: 850px; margin: 0 auto; text-align: center; background: white; border-radius: 14px; padding: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border: 1px solid #e9ecef;">
-                <p style="color: #555; margin-bottom: 1rem;">Follow and share the project with your network.</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-                    <a href="#" style="background: #2c5f2d; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none;">Facebook</a>
-                    <a href="#" style="background: #2c5f2d; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none;">Instagram</a>
-                    <a href="https://wa.me/254713947746" style="background: #2c5f2d; color: white; padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none;">WhatsApp</a>
+            <div class="social-box">
+                <p>Follow and share the project with your network.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="https://wa.me/254713947746">WhatsApp</a>
                 </div>
-                <p style="color: #555;">Share this project or forward to a friend/sponsor to help us advocate and grow.</p>
+                <p>Share this project or forward to a friend/sponsor to help us advocate and grow.</p>
             </div>
         </div>
     </section>
@@ -1003,7 +1191,7 @@
     <section id="about">
         <div class="container">
             <h2>About Our Initiative</h2>
-            <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+            <p style="max-width: 800px; margin: 0 auto 1.5rem; text-align: center; font-size: 1rem; line-height: 1.7;">
                 The Ndakaru Community Brick Manufacturing initiative produces environmentally friendly building bricks using locally available soil and manual brick presses. We are committed to providing dignified employment, skills development, and income opportunities for our community members who previously had limited economic prospects.
             </p>
             
@@ -1048,9 +1236,9 @@
                 </div>
             </div>
             
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3 style="color: #2c5f2d; margin-bottom: 1rem;">Long-Term Vision</h3>
-                <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+            <div style="margin-top: 2rem; text-align: center;">
+                <h3 style="color: #2c5f2d; margin-bottom: 0.75rem; font-size: 1.2rem;">Long-Term Vision</h3>
+                <p style="max-width: 700px; margin: 0 auto; font-size: 1rem; line-height: 1.7;">
                     This initiative has the capacity to scale into a community construction cooperative, training center, and reliable supplier to local housing projects throughout Bungoma County.
                 </p>
             </div>
@@ -1074,11 +1262,11 @@
                     <li>Provide tools, gloves, boots, and basic safety equipment for workers</li>
                 </ul>
                 
-                <p style="margin-top: 1.5rem; text-align: center; font-size: 1.2rem; color: #2c5f2d; font-weight: bold;">
+                <p style="margin-top: 1.25rem; text-align: center; font-size: 1.05rem; color: #2c5f2d; font-weight: 600;">
                     Support Range: KES 180,000 - 450,000 (USD 1,360 - 3,500)
                 </p>
                 
-                <div style="text-align: center; margin-top: 2rem;">
+                <div style="text-align: center; margin-top: 1.5rem;">
                     <a href="#contact" class="cta-button">Get in Touch to Support</a>
                 </div>
             </div>
@@ -1089,7 +1277,7 @@
         <div class="container">
             <h2>Contact Us</h2>
             <div class="contact-info">
-                <h3 style="text-align: center; color: #2c5f2d; margin-bottom: 1.5rem;">Mildred Nasipuondi Wepukhulu</h3>
+                <h3 style="text-align: center; color: #2c5f2d; margin-bottom: 1.5rem;">Mildred Nasipwondi Wepukhulu</h3>
                 <p style="text-align: center; margin-bottom: 0.5rem;"><strong>Founder & Project Lead</strong></p>
                 
                 <p>
