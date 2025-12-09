@@ -193,7 +193,7 @@
         }
 
         section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
         section:nth-child(even) {
@@ -205,10 +205,19 @@
             padding: 2.5rem 0;
         }
 
+        #stories,
+        #impact-metrics,
+        #transparency,
+        #social-proof,
+        #cta,
+        #trust {
+            padding: 2rem 0;
+        }
+
         h2 {
             font-size: 2.5rem;
             color: #1e4d1f;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -220,6 +229,16 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
+        }
+
+        #stories h2,
+        #impact-metrics h2,
+        #transparency h2,
+        #social-proof h2,
+        #cta h2,
+        #trust h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
         }
 
         h2::after {
@@ -634,6 +653,7 @@
             border: 1px solid #e9ecef;
         }
 
+
         .founder-photo {
             width: 100%;
             max-width: 320px;
@@ -702,26 +722,49 @@
         }
 
         .testimonial-grid {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
         }
 
         .testimonial-card {
             background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 95, 45, 0.12);
         }
 
         .testimonial-card p {
             color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.5;
             margin: 0;
+            flex: 1;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .testimonial-author {
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e9ecef;
         }
 
         .transparency-box {
@@ -828,6 +871,539 @@
             background: #1e4d1f;
         }
 
+        /* Stories & Case Studies Styles */
+        .stories-section {
+            background: #ffffff;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #2c5f2d;
+            transition: all 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(44, 95, 45, 0.2);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .story-title {
+            font-size: 1.5rem;
+            color: #1e4d1f;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .story-subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .story-quote {
+            background: #f8f9fa;
+            border-left: 4px solid #2c5f2d;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #444;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .story-details {
+            color: #555;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        .story-details p {
+            margin-bottom: 0.875rem;
+        }
+
+        .story-before-after {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .before-after-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        .before-after-item strong {
+            color: #1e4d1f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Numbers & Outcomes Styles */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid #2c5f2d;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(44, 95, 45, 0.15);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e4d1f;
+            display: block;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #1e4d1f, #2c5f2d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-label {
+            color: #555;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .metric-description {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .environmental-outcomes {
+            background: #e8f5e9;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .environmental-outcomes h3 {
+            color: #1e4d1f;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .environmental-outcomes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .environmental-outcomes li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(44, 95, 45, 0.1);
+            color: #444;
+        }
+
+        .environmental-outcomes li:last-child {
+            border-bottom: none;
+        }
+
+        .environmental-outcomes li::before {
+            content: "🌱 ";
+            margin-right: 0.5rem;
+        }
+
+        /* Financial Transparency Pie Chart */
+        .pie-chart-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .pie-chart {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            background: conic-gradient(
+                #2c5f2d 0% 40%,
+                #4a7c4e 40% 65%,
+                #66bb6a 65% 85%,
+                #81c784 85% 95%,
+                #a5d6a7 95% 100%
+            );
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .pie-chart-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-color.color-1 { background: #2c5f2d; }
+        .legend-color.color-2 { background: #4a7c4e; }
+        .legend-color.color-3 { background: #66bb6a; }
+        .legend-color.color-4 { background: #81c784; }
+        .legend-color.color-5 { background: #a5d6a7; }
+
+        .legend-text {
+            flex: 1;
+        }
+
+        .legend-percentage {
+            font-weight: 700;
+            color: #1e4d1f;
+            font-size: 1.1rem;
+        }
+
+        .budget-table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .budget-table th {
+            background: #2c5f2d;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .budget-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .budget-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .budget-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Support Packages Styles */
+        /* Support Packages Tabs */
+        .package-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.75rem;
+        }
+
+        .package-tab {
+            padding: 0.6rem 1.25rem;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: none;
+            outline: none;
+        }
+
+        .package-tab:hover {
+            background: #e8f5e9;
+            color: #2c5f2d;
+        }
+
+        .package-tab.active {
+            background: #2c5f2d;
+            color: white;
+            border-color: #2c5f2d;
+        }
+
+        /* Impact Tabs (Stories / Metrics / Transparency / Testimonials) */
+        .impact-tabs-wrapper {
+            padding: 1.5rem 0 0.5rem;
+        }
+
+        .impact-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .impact-tab {
+            padding: 0.55rem 1.15rem;
+            background: #f8f9fa;
+            border: 1px solid #e0e6e0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #566;
+            transition: all 0.25s ease;
+            font-size: 0.9rem;
+        }
+
+        .impact-tab:hover {
+            background: #e8f5e9;
+            color: #2c5f2d;
+        }
+
+        .impact-tab.active {
+            background: #2c5f2d;
+            color: #fff;
+            border-color: #2c5f2d;
+        }
+
+        .tabbed-section {
+            display: none;
+        }
+
+        .tabbed-section.active {
+            display: block;
+        }
+
+        .package-tab-content {
+            display: none;
+        }
+
+        .package-tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5f2d, #4a7c4e);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(44, 95, 45, 0.2);
+            border-color: #2c5f2d;
+        }
+
+        .package-card.featured {
+            border-color: #2c5f2d;
+            border-width: 3px;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        }
+
+        .package-amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1e4d1f;
+            margin-bottom: 0.4rem;
+        }
+
+        .package-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c5f2d;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .package-scope {
+            color: #555;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            flex: 1;
+        }
+
+        .package-scope strong {
+            color: #1e4d1f;
+            font-size: 0.9rem;
+        }
+
+        .package-scope ul {
+            margin: 0.4rem 0 0.4rem 1rem;
+            color: #666;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .package-scope li {
+            margin-bottom: 0.25rem;
+        }
+
+        .package-impact {
+            background: #e8f5e9;
+            padding: 0.6rem;
+            border-radius: 5px;
+            margin: 0.6rem 0;
+            border-left: 3px solid #2c5f2d;
+            font-size: 0.85rem;
+        }
+
+        .package-impact strong {
+            color: #1e4d1f;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .package-cta {
+            margin-top: auto;
+            padding-top: 0.75rem;
+        }
+
+        .package-cta .cta-button {
+            padding: 0.65rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* Trust & Credibility Styles */
+        .trust-section {
+            background: #f8f9fa;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .trust-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .trust-card h3 {
+            color: #1e4d1f;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .trust-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .trust-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .trust-card li:last-child {
+            border-bottom: none;
+        }
+
+        .trust-card li::before {
+            content: "✓ ";
+            color: #2c5f2d;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .contact-highlight {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #2c5f2d;
+        }
+
+        .contact-highlight strong {
+            color: #1e4d1f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2rem;
@@ -892,6 +1468,31 @@
             .contact-info {
                 padding: 2rem;
             }
+
+            .pie-chart {
+                width: 250px;
+                height: 250px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-tabs {
+                flex-direction: column;
+            }
+
+            .package-tab {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -930,10 +1531,12 @@
         <ul>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#founder">Founder</a></li>
-            <li><a href="#impact">Impact</a></li>
+            <li><a href="#stories">Stories</a></li>
+            <li><a href="#impact-metrics">Impact Metrics</a></li>
+            <li><a href="#transparency">Transparency</a></li>
+            <li><a href="#cta">Support Packages</a></li>
+            <li><a href="#trust">Trust & Credibility</a></li>
             <li><a href="#social-proof">Testimonials</a></li>
-            <li><a href="#transparency">Use of Funds</a></li>
-            <li><a href="#cta">Support</a></li>
             <li><a href="#social">Connect</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#objectives">Objectives</a></li>
@@ -947,8 +1550,8 @@
             <p>We are a community-driven initiative providing dignified employment and skills development for women and youth in rural Kenya. Through environmentally friendly brick manufacturing, we're building not just homes, but futures—creating economic stability and empowering families to break the cycle of poverty.</p>
             
             <div class="hero-cta">
-                <a href="#support" class="hero-button hero-button-primary">Support Our Mission</a>
-                <a href="#gallery" class="hero-button hero-button-secondary">See Our Impact</a>
+                <a href="#cta" class="hero-button hero-button-primary">Support Our Mission</a>
+                <a href="#stories" class="hero-button hero-button-secondary">See Our Impact</a>
             </div>
 
             <div class="trust-badges">
@@ -1078,6 +1681,16 @@
         <p style="padding: 12px 15px; font-size: 0.95rem; color: #444;">Day-in-the-life clip from the production yard</p>
       </div>
 
+      <!-- Founder Video -->
+      <div class="media-item" style="background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <div class="video-wrapper" style="width: 100%; height: 220px; overflow: hidden; background: #000;">
+          <video controls muted style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="foundertalking.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p style="padding: 12px 15px; font-size: 0.95rem; color: #444;">Founder’s message: Insights shared after FLAIR Summit London (15–20 June 2025)</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1092,86 +1705,634 @@
                 <div class="founder-text">
                     <div class="founder-meta">Mildred Nasipwondi Wepukhulu — Founder & Project Lead</div>
                     <p>
-                        “Welcome to Ndakaru Community Brick Manufacturing Initiative. I grew up in Ndakaru Village seeing families struggle with basic needs and lack of stable income. I believe everyone—especially women and youth—deserve a chance to build a better life with dignity.
+                        "Welcome to Ndakaru Community Brick Manufacturing Initiative. I grew up in Ndakaru Village seeing families struggle with basic needs and lack of stable income. I believe everyone—especially women and youth—deserve a chance to build a better life with dignity.
+                    </p>
+                    <p>
+                        In June 2025 I was invited to the FLAIR Summit in London (15–20 June 2025). I returned with practical training methods, safety standards, and enterprise tips that we now use to empower women and youth here at home. Those lessons are already helping our teams earn more, work safer, and mentor new members.
                     </p>
                     <p>
                         With this initiative, we provide more than bricks: we build hope, homes, and futures. Every brick pressed represents a step out of poverty, a home built, a family supported.
                     </p>
                     <p>
-                        I invite you to join us—through support, partnership, or prayer—so we can expand our impact and empower many more lives. Together, we can build a stronger, more hopeful Ndakaru.”
+                        I invite you to join us—through support, partnership, or prayer—so we can expand our impact and empower many more lives. Together, we can build a stronger, more hopeful Ndakaru."
                     </p>
-                    <div class="founder-highlight">Real people behind the mission: transparent, community-led, and focused on women and youth empowerment.</div>
+                    <div class="founder-highlight">Real people behind the mission: transparent, community-led, and focused on women and youth empowerment, strengthened by lessons brought home from the FLAIR Summit London.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="impact">
+    <section class="impact-tabs-wrapper">
         <div class="container">
-            <h2>Impact & Transparency</h2>
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <h3>Stories & Case Studies</h3>
-                    <p>Before/after stories from women and youth whose lives changed after joining, with short quotes and photos (with permission).</p>
-                </div>
-                <div class="impact-card">
-                    <h3>Numbers & Outcomes</h3>
-                    <p>Breakdown beyond "25 lives impacted": e.g., X women earn KES Y per month, Z families gained permanent housing. Use infographics for clarity.</p>
-                </div>
-                <div class="impact-card">
-                    <h3>Financial Transparency</h3>
-                    <p>Simple "Where Your Money Goes" breakdown: tools, equipment, materials, safety gear—builds trust with funders.</p>
-                </div>
+            <div class="impact-tabs">
+                <button class="impact-tab active" onclick="showImpactTab(event, 'stories')">Stories</button>
+                <button class="impact-tab" onclick="showImpactTab(event, 'impact-metrics')">Numbers & Outcomes</button>
+                <button class="impact-tab" onclick="showImpactTab(event, 'transparency')">Transparency</button>
+                <button class="impact-tab" onclick="showImpactTab(event, 'social-proof')">Testimonials</button>
             </div>
         </div>
     </section>
 
-    <section id="social-proof" style="background: #f8f9fa;">
+    <section id="stories" class="stories-section tabbed-section active">
         <div class="container">
-            <h2>Testimonials & Social Proof</h2>
+            <h2>Stories & Case Studies</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; font-size: 1.1rem;">
+                Real stories of change from our community members whose lives have been transformed through this initiative.
+            </p>
+
+            <!-- Grace's Story -->
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-icon">👩‍💼</div>
+                    <div>
+                        <h3 class="story-title">Grace: Production Lead</h3>
+                        <p class="story-subtitle">Women's Empowerment Spotlight</p>
+                </div>
+                </div>
+                <div class="story-quote">
+                    "Because of this project, I can now earn a steady income and support my children's school fees. I feel proud of the skills I've gained and the role I play in building our community."
+                </div>
+                <div class="story-details">
+                    <p><strong>Before joining:</strong> Grace relied on inconsistent farm labor, struggling to make ends meet and unable to consistently support her children's education.</p>
+                    <p><strong>Today:</strong> Grace supervises brick pressing operations, teaches new workers essential skills, and has opened a small savings account for her family. She earns a reliable income that allows her to plan for her children's future.</p>
+            </div>
+                <div class="story-before-after">
+                    <div class="before-after-item">
+                        <strong>Before</strong>
+                        <span>Inconsistent farm labor income</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>After</strong>
+                        <span>Steady income as Production Lead</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>Impact</strong>
+                        <span>Children's school fees secured</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- David's Story -->
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-icon">👨‍🔧</div>
+                    <div>
+                        <h3 class="story-title">David: Youth Trainee</h3>
+                        <p class="story-subtitle">Youth Employment Spotlight</p>
+                    </div>
+                </div>
+                <div class="story-quote">
+                    "I learned how to operate the brick press and now I earn enough to help my parents and save for my technical training."
+                </div>
+                <div class="story-details">
+                    <p><strong>Before the initiative:</strong> David faced limited job opportunities in the village, with few prospects for meaningful employment or skills development.</p>
+                    <p><strong>After training:</strong> David now operates the brick press with confidence, earns reliable income, and mentors younger trainees. He's saving money to pursue technical training that will further advance his career.</p>
+                </div>
+                <div class="story-before-after">
+                    <div class="before-after-item">
+                        <strong>Before</strong>
+                        <span>Limited job opportunities</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>After</strong>
+                        <span>Skilled operator & mentor</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>Impact</strong>
+                        <span>Saving for technical training</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wamalwa Family Story -->
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-icon">🏠</div>
+                    <div>
+                        <h3 class="story-title">The Wamalwa Family</h3>
+                        <p class="story-subtitle">Affordable Housing Story</p>
+                    </div>
+                </div>
+                <div class="story-quote">
+                    "These bricks helped us finish our home in time for the rains. We could afford them, and they are strong and durable."
+                </div>
+                <div class="story-details">
+                    <p><strong>Impact:</strong> The Wamalwa family saved nearly 35% in construction costs compared to conventional materials, enabling them to complete their home before the rainy season. The quality and affordability of Ndakaru bricks made homeownership achievable for this family.</p>
+                </div>
+                <div class="story-before-after">
+                    <div class="before-after-item">
+                        <strong>Cost Savings</strong>
+                        <span>35% less than conventional materials</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>Timeline</strong>
+                        <span>Completed before rainy season</span>
+                    </div>
+                    <div class="before-after-item">
+                        <strong>Quality</strong>
+                        <span>Strong and durable bricks</span>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: #666; font-style: italic;">
+                * Short before/after photos and 20–40 second day-in-the-life clips showing production, teamwork, and community moments are available (with consent).
+            </p>
+        </div>
+    </section>
+
+    <section id="impact-metrics" class="tabbed-section" style="background: #f8f9fa;">
+        <div class="container">
+            <h2>Numbers & Outcomes</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; font-size: 1.1rem;">
+                Measurable impact that demonstrates the real difference we're making in Ndakaru Village.
+            </p>
+
+            <h3 style="color: #1e4d1f; font-size: 1.75rem; margin-bottom: 1.5rem; text-align: center;">Community Impact at a Glance</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">18</span>
+                    <span class="metric-label">Women Employed or Trained</span>
+                    <span class="metric-description">In brick molding, quality control, and sales</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">7</span>
+                    <span class="metric-label">Youth Trained</span>
+                    <span class="metric-description">In brick pressing, machinery handling, and entrepreneurship</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">12+</span>
+                    <span class="metric-label">Homes Built</span>
+                    <span class="metric-description">Using Ndakaru bricks, increasing rural housing stability</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">KES 350-600</span>
+                    <span class="metric-label">Daily Earnings</span>
+                    <span class="metric-description">Per worker, depending on role and hours</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">3</span>
+                    <span class="metric-label">Families Transitioned</span>
+                    <span class="metric-description">To permanent housing using discounted community bricks</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">100%</span>
+                    <span class="metric-label">Community Ownership</span>
+                    <span class="metric-description">All benefits remain within Ndakaru Village</span>
+                </div>
+            </div>
+
+            <div class="environmental-outcomes">
+                <h3>Environmental Outcomes</h3>
+                <ul>
+                    <li><strong>Low-emission production:</strong> Our brick production avoids the burning process used by traditional kilns, significantly reducing carbon emissions.</li>
+                    <li><strong>Locally sourced materials:</strong> Using locally available soil reduces transportation emissions and construction costs.</li>
+                    <li><strong>Sustainable land-use:</strong> Our practices ensure minimal land dereliction and ecological disturbance, protecting the environment for future generations.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-proof" style="background: #f8f9fa; padding: 2rem 0;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Testimonials & Social Proof</h2>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p>"Because of this project, I can now earn steady income and support my children's school fees." — <strong>Grace, production lead</strong></p>
+                    <p class="testimonial-quote">
+                        "Because of this project, I can now earn a steady income and support my children's school fees. I feel proud of the skills I've gained."
+                    </p>
+                    <div class="testimonial-author">
+                        <p style="margin: 0; color: #1e4d1f; font-weight: 600; font-size: 0.85rem;">— Grace, Production Lead</p>
+                        <p style="margin: 0.2rem 0 0 0; color: #666; font-size: 0.75rem;">Women's Empowerment</p>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"These bricks helped us finish our home in time for the rains." — <strong>Local family</strong></p>
+                    <p class="testimonial-quote">
+                        "I learned how to operate the brick press and now I earn enough to help my parents and save for my technical training."
+                    </p>
+                    <div class="testimonial-author">
+                        <p style="margin: 0; color: #1e4d1f; font-weight: 600; font-size: 0.85rem;">— David, Youth Trainee</p>
+                        <p style="margin: 0.2rem 0 0 0; color: #666; font-size: 0.75rem;">Youth Employment</p>
+                    </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>Add photos (with consent) and short day-in-the-life clips to keep the human stories front and center.</p>
+                    <p class="testimonial-quote">
+                        "These bricks helped us finish our home in time for the rains. We could afford them, and they are strong and durable."
+                    </p>
+                    <div class="testimonial-author">
+                        <p style="margin: 0; color: #1e4d1f; font-weight: 600; font-size: 0.85rem;">— The Wamalwa Family</p>
+                        <p style="margin: 0.2rem 0 0 0; color: #666; font-size: 0.75rem;">Affordable Housing</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="transparency" style="background: #f8f9fa;">
+    <section id="transparency" style="background: #ffffff;">
         <div class="container">
-            <h2>Use of Funds</h2>
-            <div class="transparency-box">
-                <p>Planned budget for support packages (examples):</p>
-                <ul>
-                    <li>KES 10,000: Safety equipment for 5 workers.</li>
-                    <li>KES 50,000: Builds one drying shed bay.</li>
-                    <li>KES 180,000 - 450,000: Full package for molds, press, drying shelter, and protective gear.</li>
-                </ul>
-                <p style="margin-top: 0.875rem;">Security and trust: clear contact info, community endorsements, and transparent reporting on outcomes.</p>
+            <h2>Financial Transparency</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; font-size: 1.1rem;">
+                A simple, trustworthy breakdown to increase donor confidence. See exactly where your support goes.
+            </p>
+
+            <h3 style="color: #1e4d1f; font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Where Your Support Goes</h3>
+
+            <div class="pie-chart-container">
+                <div class="pie-chart"></div>
+                <div class="pie-chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color color-1"></div>
+                        <div class="legend-text">
+                            <strong>Equipment & Tools</strong>
+                            <div class="legend-percentage">40%</div>
+                            <small style="color: #666;">Brick molds, manual press maintenance, wheelbarrows, water tanks</small>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-2"></div>
+                        <div class="legend-text">
+                            <strong>Worker Safety & Training</strong>
+                            <div class="legend-percentage">25%</div>
+                            <small style="color: #666;">Gloves, boots, dust masks, uniforms, technical training sessions</small>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-3"></div>
+                        <div class="legend-text">
+                            <strong>Production Materials</strong>
+                            <div class="legend-percentage">20%</div>
+                            <small style="color: #666;">Soil preparation, stabilizers, water supply, curing sheets</small>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-4"></div>
+                        <div class="legend-text">
+                            <strong>Community Structures</strong>
+                            <div class="legend-percentage">10%</div>
+                            <small style="color: #666;">Drying sheds, storage space, rain covers</small>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color color-5"></div>
+                        <div class="legend-text">
+                            <strong>Administration & Reporting</strong>
+                            <div class="legend-percentage">5%</div>
+                            <small style="color: #666;">Record-keeping, communication, monitoring</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 900px; margin: 2rem auto;">
+                <table class="budget-table">
+                    <thead>
+                        <tr>
+                            <th>Percentage</th>
+                            <th>Vote-Head</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>40%</strong></td>
+                            <td>Equipment & Tools</td>
+                            <td>Brick molds, manual press maintenance, wheelbarrows, water tanks</td>
+                        </tr>
+                        <tr>
+                            <td><strong>25%</strong></td>
+                            <td>Worker Safety & Training</td>
+                            <td>Gloves, boots, dust masks, uniforms, and technical training sessions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>20%</strong></td>
+                            <td>Production Materials</td>
+                            <td>Soil preparation, stabilizers, water supply, curing sheets</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10%</strong></td>
+                            <td>Community Structures</td>
+                            <td>Drying sheds, storage space, rain covers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5%</strong></td>
+                            <td>Administration & Reporting</td>
+                            <td>Record-keeping, communication, and monitoring</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <section id="cta">
+    <section id="cta" style="background: #f8f9fa; padding: 2rem 0;">
         <div class="container">
-            <h2>Support / Donate / Partner</h2>
-            <div class="cta-box">
-                <p>We make it easy for supporters to act. Choose a suggested package or reach out directly for partnership.</p>
-                <div class="cta-tags">
-                    <span class="cta-tag">Safety Kit: KES 10,000</span>
-                    <span class="cta-tag">Drying Shed Bay: KES 50,000</span>
-                    <span class="cta-tag">Full Support: KES 180,000 - 450,000</span>
+            <h2 style="margin-bottom: 1rem;">Support Packages</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 1.25rem; color: #666; font-size: 0.95rem;">
+                Choose a package that aligns with your capacity to make a difference.
+            </p>
+
+            <div class="package-tabs">
+                <button class="package-tab active" onclick="showPackageTab(event, 'small')">Small Packages<br><small style="font-weight: 400; font-size: 0.85rem;">KES 10K - 50K</small></button>
+                <button class="package-tab" onclick="showPackageTab(event, 'medium')">Medium Packages<br><small style="font-weight: 400; font-size: 0.85rem;">KES 100K - 180K</small></button>
+                <button class="package-tab" onclick="showPackageTab(event, 'large')">Large Packages<br><small style="font-weight: 400; font-size: 0.85rem;">KES 300K - 450K</small></button>
+                <button class="package-tab" onclick="showPackageTab(event, 'major')">Major Packages<br><small style="font-weight: 400; font-size: 0.85rem;">KES 600K - 1M</small></button>
                 </div>
-                <a href="#contact" class="cta-button">Contact Us to Give</a>
+
+            <!-- Small Packages Tab -->
+            <div id="small" class="package-tab-content active">
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 10,000</div>
+                    <div class="package-title">Safety & Dignity Kit (5 Workers)</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Gloves, boots, reflective jackets</li>
+                            <li>Hydration containers</li>
+                            <li>Dust masks</li>
+                        </ul>
+                </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Immediate protection for women and youth working onsite.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Support a Worker</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 25,000</div>
+                    <div class="package-title">Youth Training Starter Pack</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Training materials</li>
+                            <li>Stipends for youth trainees</li>
+                            <li>Learning manuals</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Helps at-risk youth access skills that generate income.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Sponsor Youth Training</a>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 50,000</div>
+                    <div class="package-title">Brick Production Essentials Pack</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Molds</li>
+                            <li>Simple tools</li>
+                            <li>Buckets</li>
+                            <li>Site repair items</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Improves production speed and reduces material waste.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Boost Production</a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <!-- Medium Packages Tab -->
+            <div id="medium" class="package-tab-content">
+            <div class="packages-grid">
+                <!-- Package 4 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 100,000</div>
+                    <div class="package-title">Community Worksite Safety Upgrade</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Upgrades PPE stock</li>
+                            <li>First-aid kits</li>
+                            <li>Basic site improvements (leveling, drainage)</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Creates a safer and more efficient worksite for everyone.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Improve Worker Safety</a>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 150,000</div>
+                    <div class="package-title">Micro-Shelter Construction Support</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Roofing sheets</li>
+                            <li>Timber frames</li>
+                            <li>Partial shed coverings</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Protects bricks from weather damage and reduces losses.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Help Build Shelter</a>
+                    </div>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 180,000</div>
+                    <div class="package-title">Basic Production Boost Package</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Molds</li>
+                            <li>Repair tools</li>
+                            <li>Partial drying shed roof</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Expands daily output and reduces rain-related losses.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Boost Brick Output</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Large Packages Tab -->
+            <div id="large" class="package-tab-content">
+            <div class="packages-grid">
+                <!-- Package 7 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 300,000</div>
+                    <div class="package-title">Full Brick Production Upgrade</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>New molds</li>
+                            <li>Manual press machine</li>
+                            <li>Safety kits</li>
+                            <li>Multipurpose drying structure</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Strengthens productivity and supports new workers joining the team.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Upgrade the Production Line</a>
+                    </div>
+                </div>
+
+                <!-- Package 8 -->
+                <div class="package-card featured">
+                    <div class="package-amount">KES 450,000</div>
+                    <div class="package-title">"Build the Future" Complete Infrastructure Package</div>
+                    <div class="package-scope">
+                        <strong>Scope:</strong>
+                        <ul>
+                            <li>Mold sets</li>
+                            <li>Manual press</li>
+                            <li>Full drying shed</li>
+                            <li>Storage shelter</li>
+                            <li>Safety & work gear</li>
+                            <li>Training for new workers (women & youth)</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Enables a fully functional, climate-resilient production unit.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Fund a Complete Setup</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Major Packages Tab -->
+            <div id="major" class="package-tab-content">
+            <div class="packages-grid">
+                <!-- Package 9 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 600,000</div>
+                    <div class="package-title">Women's Economic Empowerment Package</div>
+                    <div class="package-scope">
+                        <strong>Funds:</strong>
+                        <ul>
+                            <li>Training for 20 women</li>
+                            <li>Safety gear</li>
+                            <li>Tools & molds for women's teams</li>
+                            <li>Start-up materials for enterprise units</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Creates sustainable income paths for women and mothers.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Empower Women</a>
+                    </div>
+                </div>
+
+                <!-- Package 10 -->
+                <div class="package-card">
+                    <div class="package-amount">KES 800,000</div>
+                    <div class="package-title">Community Training & Equipment Hub</div>
+                    <div class="package-scope">
+                        <strong>Covers:</strong>
+                        <ul>
+                            <li>Construction of a training shade</li>
+                            <li>Workbenches</li>
+                            <li>Learning materials</li>
+                            <li>Shared tools for youth & women</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Establishes long-term training capacity for the entire community.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Build a Training Hub</a>
+                    </div>
+                </div>
+
+                <!-- Package 11 - Flagship -->
+                <div class="package-card featured">
+                    <div class="package-amount">KES 1,000,000</div>
+                    <div class="package-title">Ndakaru Resilience & Development Fund</div>
+                    <div style="background: #fff3cd; padding: 0.75rem; border-radius: 6px; margin-bottom: 1rem; text-align: center; font-weight: 600; color: #856404; font-size: 0.9rem;">
+                        ⭐ Flagship Package
+                    </div>
+                    <div class="package-scope">
+                        <strong>Supports:</strong>
+                        <ul>
+                            <li>Expansion of full brick-making infrastructure</li>
+                            <li>Worker welfare systems</li>
+                            <li>Long-term training programs</li>
+                            <li>Safety upgrades</li>
+                            <li>Expanded storage and drying facilities</li>
+                        </ul>
+                    </div>
+                    <div class="package-impact">
+                        <strong>Impact:</strong> Transforms Ndakaru's brick-making project into a sustainable community enterprise.
+                    </div>
+                    <div class="package-cta">
+                        <a href="#contact" class="cta-button" style="width: 100%; text-align: center; display: block;">Become a Flagship Partner</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 1.5rem; padding: 1rem; background: white; border-radius: 8px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <p style="color: #555; margin-bottom: 0.5rem; font-size: 0.95rem;">
+                    <strong>Support Range:</strong> KES 10,000 – 1,000,000 (USD 78 – 7,750)
+                </p>
+                <p style="color: #666; font-size: 0.85rem;">
+                    All packages can be customized. Contact us to discuss partnership opportunities.
+                </p>
             </div>
         </div>
     </section>
+
+    <script>
+        function showPackageTab(event, tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.package-tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.package-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            const clickedTab = event.target.closest('.package-tab');
+            if (clickedTab) {
+                clickedTab.classList.add('active');
+            }
+        }
+
+        // Initialize first tab as active on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstTab = document.querySelector('.package-tab.active');
+            const firstContent = document.querySelector('.package-tab-content.active');
+            if (firstTab && firstContent) {
+                // Already set in HTML, but ensure consistency
+                firstTab.classList.add('active');
+                firstContent.classList.add('active');
+            }
+        });
+    </script>
 
     <section id="social" style="background: #f8f9fa;">
         <div class="container">
@@ -1263,12 +2424,64 @@
                 </ul>
                 
                 <p style="margin-top: 1.25rem; text-align: center; font-size: 1.05rem; color: #2c5f2d; font-weight: 600;">
-                    Support Range: KES 180,000 - 450,000 (USD 1,360 - 3,500)
+                    Support Range: KES 180,000 – 1,000,000 (USD 1,400 – 7,750)
                 </p>
                 
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <a href="#contact" class="cta-button">Get in Touch to Support</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust" class="trust-section">
+        <div class="container">
+            <h2>Security, Trust & Credibility</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; font-size: 1.1rem;">
+                Our commitment to transparency and accountability reassures funders that their support creates real, measurable impact.
+            </p>
+
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h3>Our Commitment to Transparency</h3>
+                    <ul>
+                        <li><strong>Clear Contact Information:</strong> Direct access to project lead Mildred Nasipwondi Wepukhulu via phone and email</li>
+                        <li><strong>Community Endorsements:</strong> Supported by local chief, church, and women's group statements</li>
+                        <li><strong>Verified Operations:</strong> All activities are community-led and locally verified</li>
+                    </ul>
+                </div>
+
+                <div class="trust-card">
+                    <h3>Quarterly Reports</h3>
+                    <ul>
+                        <li>Production numbers and output metrics</li>
+                        <li>Earnings distributed to workers</li>
+                        <li>Families supported with housing</li>
+                        <li>Photos and short updates shared with all supporters</li>
+                        <li>Financial breakdown of fund utilization</li>
+                    </ul>
+                </div>
+
+                <div class="trust-card">
+                    <h3>100% Community-Owned Model</h3>
+                    <ul>
+                        <li>No external ownership or hidden costs</li>
+                        <li>All benefits remain within Ndakaru Village</li>
+                        <li>Decisions made by community members</li>
+                        <li>Transparent financial management</li>
+                        <li>Direct impact on local families</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-highlight" style="max-width: 900px; margin: 2rem auto;">
+                <strong>Direct Contact for Questions or Verification:</strong>
+                <p style="margin-top: 0.75rem; margin-bottom: 0;">
+                    <strong>Mildred Nasipwondi Wepukhulu</strong> — Founder & Project Lead<br>
+                    📞 <a href="tel:+254755550708" style="color: #2c5f2d;">+254 755 550 708</a> / <a href="tel:+254713947746" style="color: #2c5f2d;">+254 713 947 746</a><br>
+                    📧 <a href="mailto:mildredwepukhulu7@gmail.com" style="color: #2c5f2d;">mildredwepukhulu7@gmail.com</a><br>
+                    📍 Ndakaru Village, Sirisia Sub-County, Bungoma County, Kenya
+                </p>
             </div>
         </div>
     </section>
