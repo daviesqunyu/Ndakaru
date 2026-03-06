@@ -29,7 +29,40 @@
   </style>
 </head>
 <body>
-  <nav class="main-nav scrolled"><div class="container"><a class="nav-logo" href="../index.html">Ndakaru Brick</a><a href="../blog.html" style="color:#fff;font-weight:600;">Blog</a></div></nav>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <nav class="main-nav scrolled" id="mainNav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">Ndakaru Bricks &amp; Construction</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a data-nav href="../index.html">Home</a></li>
+        <li><a data-nav href="../about.html">About</a></li>
+        <li><a data-nav href="../services.html">Services</a></li>
+        <li><a data-nav href="../projects.html">Projects</a></li>
+        <li><a data-nav href="../gallery.html">Gallery</a></li>
+        <li><a data-nav href="../blog.html" class="active">Blog</a></li>
+        <li><a data-nav href="../impact.html">Impact</a></li>
+        <li><a data-nav href="../support.html">Support</a></li>
+        <li><a data-nav href="../contact.html">Contact</a></li>
+        <li><a data-nav href="../get-a-quote.html">Get a Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-close" id="navClose" aria-label="Close menu">×</button>
+    <ul class="nav-links">
+      <li><a data-nav href="../index.html">Home</a></li>
+      <li><a data-nav href="../about.html">About</a></li>
+      <li><a data-nav href="../services.html">Services</a></li>
+      <li><a data-nav href="../projects.html">Projects</a></li>
+      <li><a data-nav href="../gallery.html">Gallery</a></li>
+      <li><a data-nav href="../blog.html">Blog</a></li>
+      <li><a data-nav href="../impact.html">Impact</a></li>
+      <li><a data-nav href="../support.html">Support</a></li>
+      <li><a data-nav href="../contact.html">Contact</a></li>
+      <li><a data-nav href="../get-a-quote.html">Get a Quote</a></li>
+    </ul>
+  </div>
   <main class="post">
     <div class="cat">Material Guides</div>
     <h1>Choosing the Right Bricks for Your Kenyan Home</h1>
@@ -44,8 +77,47 @@
     <p>At Ndakaru we use and supply quality bricks suited to your project and location. A site visit helps us recommend the best option for your budget and design.</p>
     <p><a href="../contact.html">Ask us about materials for your project →</a></p>
   </main>
-  <footer><div class="footer-bottom"><p>&copy; <span id="footerYear"></span> Ndakaru Bricks &amp; Construction. <a href="https://ndakaru.co.ke/" style="color:inherit;">ndakaru.co.ke</a> — Sirisia, Ndakaru, Bungoma. All Rights Reserved.</p></div></footer>
-  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+  <a href="https://wa.me/254713947746?text=Hi%2C%20I%20read%20your%20blog%20on%20ndakaru.co.ke" class="float-cta" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p><strong>Ndakaru Bricks &amp; Construction</strong></p>
+        <p>Ndakaru Village, Sirisia, Bungoma — Building Kenya. One Brick at a Time.</p>
+      </div>
+      <div>
+        <p>
+          <a href="https://ndakaru.co.ke">ndakaru.co.ke</a> &middot;
+          <a href="../about.html">About</a> &middot;
+          <a href="../services.html">Services</a> &middot;
+          <a href="../projects.html">Projects</a> &middot;
+          <a href="../gallery.html">Gallery</a> &middot;
+          <a href="../blog.html">Blog</a> &middot;
+          <a href="../impact.html">Impact</a> &middot;
+          <a href="../support.html">Support</a> &middot;
+          <a href="../contact.html">Contact</a> &middot;
+          <a href="../get-a-quote.html">Get a Quote</a> &middot;
+          <a href="../sitemap.xml">Sitemap</a>
+        </p>
+      </div>
+      <div>
+        <p><a href="tel:+254755550708">+254 755 550 708</a> / <a href="tel:+254713947746">+254 713 947 746</a></p>
+        <p><a href="https://wa.me/254713947746">WhatsApp</a> &middot; <a href="mailto:mildredwepukhulu7@gmail.com">Email</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> Ndakaru Bricks &amp; Construction. <a href="https://ndakaru.co.ke/" style="color:inherit;">ndakaru.co.ke</a> — Sirisia, Ndakaru, Bungoma. All Rights Reserved.</p>
+      <p>Website proudly built by D&amp;V Technologies — <a href="https://dvtechnologies.xyz" target="_blank" rel="noopener">dvtechnologies.xyz</a></p>
+    </div>
+  </footer>
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <div class="nav-inner">
+      <a href="../index.html"><span class="icon">🏠</span> Home</a>
+      <a href="../services.html"><span class="icon">🛠</span> Services</a>
+      <a href="../projects.html"><span class="icon">📁</span> Projects</a>
+      <a href="../contact.html"><span class="icon">📞</span> Contact</a>
+    </div>
+  </nav>
   <script src="../app.js"></script>
 </body>
 </html>
