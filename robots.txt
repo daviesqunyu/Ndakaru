@@ -1,0 +1,8 @@
+# ndakaru.co.ke — Ndakaru Bricks & Construction
+User-agent: *
+Allow: /
+
+Sitemap: https://ndakaru.co.ke/sitemap.xml
+
+# Disallow admin or private paths if any in future
+# Disallow: /admin/

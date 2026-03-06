@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Hexagon / nut shape - construction theme -->
+  <path d="M16 2L28 9v14L16 30L4 23V9L16 2z" fill="#1B2A4A" stroke="#F5A623" stroke-width="1.2"/>
+  <!-- Letter N -->
+  <path fill="#F5A623" d="M10 10v12h2.5V14.2l4.5 7.8H19V10h-2.5v7.8L12 10H10z"/>
+</svg>

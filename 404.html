@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Page Not Found | Ndakaru Bricks &amp; Construction — ndakaru.co.ke</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ndakaru.co.ke/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .error-hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+    .error-code { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 15vw, 8rem); color: var(--primary, #1B2A4A); line-height: 1; margin-bottom: 0.5rem; }
+    .error-title { font-size: 1.5rem; color: var(--text, #2C2C2C); margin-bottom: 1rem; }
+    .error-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .error-cta a { padding: 0.85rem 1.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .error-cta .btn-primary { background: var(--accent, #F5A623); color: var(--primary, #1B2A4A); }
+    .error-cta .btn-outline { border: 2px solid var(--primary, #1B2A4A); color: var(--primary, #1B2A4A); }
+  </style>
+</head>
+<body>
+  <nav class="main-nav scrolled" id="mainNav">
+    <div class="container">
+      <a class="nav-logo" href="index.html">Ndakaru Brick</a>
+      <a href="index.html" style="color: #fff; font-weight: 600;">Home</a>
+    </div>
+  </nav>
+  <main class="error-hero">
+    <div>
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p style="color: var(--text-light, #6C757D); max-width: 400px; margin: 0 auto;">The page you're looking for doesn't exist or has been moved.</p>
+      <div class="error-cta">
+        <a href="index.html" class="btn-primary">Back to Home</a>
+        <a href="contact.html" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </main>
+  <footer style="margin-top: auto;">
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> Ndakaru Bricks &amp; Construction. <a href="https://ndakaru.co.ke/" style="color: inherit;">ndakaru.co.ke</a> — Sirisia, Ndakaru, Bungoma. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+  <script src="app.js"></script>
+</body>
+</html>

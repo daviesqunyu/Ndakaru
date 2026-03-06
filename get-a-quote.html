@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Get a Free Quote | Ndakaru Brick and Construction — Ndakaru Village, Sirisia, Bungoma</title>
+  <meta name="description" content="Request a free quote from Ndakaru Brick and Construction. Ndakaru Village, Sirisia, Bungoma. We respond within 24–48 hours.">
+  <link rel="canonical" href="https://ndakaru.co.ke/get-a-quote.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1B2A4A">
+  <meta property="og:title" content="Get a Quote | Ndakaru Bricks &amp; Construction — ndakaru.co.ke">
+  <meta property="og:description" content="Request a free quote from Ndakaru Bricks &amp; Construction. Sirisia, Ndakaru, Bungoma. We respond within 24–48 hours.">
+  <meta property="og:image" content="https://ndakaru.co.ke/ndakaruphoto.jpg">
+  <meta property="og:url" content="https://ndakaru.co.ke/get-a-quote.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ndakaru Bricks &amp; Construction">
+  <meta property="og:locale" content="en_KE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get a Quote | Ndakaru Bricks &amp; Construction — ndakaru.co.ke">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .quote-wizard { max-width: 560px; margin: 0 auto; padding: 2rem 20px; }
+    .quote-progress { display: flex; justify-content: space-between; margin-bottom: 2rem; gap: 0.5rem; }
+    .quote-progress span { flex: 1; height: 6px; background: rgba(26,58,27,0.2); border-radius: 3px; transition: background 0.3s; }
+    .quote-progress span.done { background: var(--green); }
+    .quote-progress span.current { background: var(--terracotta); }
+    .quote-step { display: none; }
+    .quote-step.active { display: block; }
+    .quote-step h2 { font-family: 'Playfair Display', serif; color: var(--green); margin-bottom: 1rem; font-size: 1.5rem; }
+    .quote-step label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #333; }
+    .quote-step input, .quote-step select, .quote-step textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; font-size: 1rem; }
+    .quote-step textarea { min-height: 100px; resize: vertical; }
+    .quote-actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .quote-actions button { padding: 0.85rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 1rem; border: none; }
+    .quote-actions .btn-next, .quote-actions .btn-submit { background: var(--green); color: var(--white); }
+    .quote-actions .btn-prev { background: #eee; color: #333; }
+    .quote-actions .btn-next:hover, .quote-actions .btn-submit:hover { background: #0f2a10; }
+    .quote-thankyou { display: none; text-align: center; padding: 2rem; }
+    .quote-thankyou.show { display: block; }
+    .quote-thankyou h2 { color: var(--green); margin-bottom: 0.5rem; }
+    .quote-thankyou p { color: #555; margin-bottom: 1rem; }
+    .quote-form.hide { display: none; }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <nav class="main-nav scrolled" id="mainNav">
+    <div class="container">
+      <a class="nav-logo" href="index.html">Ndakaru Brick</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a data-nav href="index.html">Home</a></li>
+        <li><a data-nav href="about.html">About</a></li>
+        <li><a data-nav href="services.html">Services</a></li>
+        <li><a data-nav href="projects.html">Projects</a></li>
+        <li><a data-nav href="gallery.html">Gallery</a></li>
+        <li><a data-nav href="blog.html">Blog</a></li>
+        <li><a data-nav href="contact.html">Contact</a></li>
+        <li><a data-nav href="get-a-quote.html" class="active">Get a Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-close" id="navClose" aria-label="Close menu">×</button>
+    <ul class="nav-links">
+      <li><a data-nav href="index.html">Home</a></li>
+      <li><a data-nav href="about.html">About</a></li>
+      <li><a data-nav href="services.html">Services</a></li>
+      <li><a data-nav href="projects.html">Projects</a></li>
+      <li><a data-nav href="gallery.html">Gallery</a></li>
+      <li><a data-nav href="blog.html">Blog</a></li>
+      <li><a data-nav href="contact.html">Contact</a></li>
+      <li><a data-nav href="get-a-quote.html">Get a Quote</a></li>
+    </ul>
+  </div>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container"><a href="index.html">Home</a> <span class="breadcrumb-sep">/</span> <span>Get a Quote</span></div>
+  </nav>
+  <header class="page-hero">
+    <h1>Get a Free Quote</h1>
+    <p>Tell us about your project — we’ll respond within 24–48 hours</p>
+  </header>
+  <a href="https://wa.me/254713947746?text=Hi%2C%20I%20submitted%20a%20quote%20request%20on%20your%20website." class="float-cta" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+  <section class="reveal">
+    <div class="quote-wizard">
+      <div class="quote-form" id="quoteForm">
+        <div class="quote-progress" id="quoteProgress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+          <span class="current" data-step="1"></span>
+          <span data-step="2"></span>
+          <span data-step="3"></span>
+          <span data-step="4"></span>
+        </div>
+        <form id="quoteWizardForm" novalidate>
+          <div class="quote-step active" data-step="1">
+            <h2>Step 1: Project type</h2>
+            <label for="projectType">What type of project?</label>
+            <select id="projectType" name="projectType" required>
+              <option value="">Select…</option>
+              <option value="residential-bungalow">Residential — Bungalow</option>
+              <option value="residential-maisonette">Residential — Maisonette</option>
+              <option value="residential-apartment">Residential — Apartment block</option>
+              <option value="renovation">Renovation / Extension</option>
+              <option value="commercial-office">Commercial — Office</option>
+              <option value="commercial-warehouse">Commercial — Warehouse / Retail</option>
+              <option value="civil">Civil works (roads, drainage, fencing)</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="quote-actions">
+              <button type="button" class="btn-next" id="next1">Next →</button>
+            </div>
+          </div>
+          <div class="quote-step" data-step="2">
+            <h2>Step 2: Project details</h2>
+            <label for="location">Location / County</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Bungoma, Sirisia" required>
+            <label for="timeline">Preferred start / timeline</label>
+            <input type="text" id="timeline" name="timeline" placeholder="e.g. In 3 months, ASAP">
+            <label for="budget">Budget range (optional)</label>
+            <select id="budget" name="budget">
+              <option value="">Select range…</option>
+              <option value="under-1m">Under KES 1M</option>
+              <option value="1m-5m">KES 1M – 5M</option>
+              <option value="5m-15m">KES 5M – 15M</option>
+              <option value="15m-plus">Above KES 15M</option>
+            </select>
+            <label for="details">Brief description</label>
+            <textarea id="details" name="details" placeholder="Plot size, number of rooms, special requirements…"></textarea>
+            <div class="quote-actions">
+              <button type="button" class="btn-prev" id="prev2">← Back</button>
+              <button type="button" class="btn-next" id="next2">Next →</button>
+            </div>
+          </div>
+          <div class="quote-step" data-step="3">
+            <h2>Step 3: Contact info</h2>
+            <label for="name">Full name *</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+            <label for="county">County</label>
+            <input type="text" id="county" name="county" placeholder="Your county">
+            <div class="quote-actions">
+              <button type="button" class="btn-prev" id="prev3">← Back</button>
+              <button type="button" class="btn-next" id="next3">Next →</button>
+            </div>
+          </div>
+          <div class="quote-step" data-step="4">
+            <h2>Step 4: Review &amp; submit</h2>
+            <p id="reviewSummary" style="background: var(--cream); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.95rem;"></p>
+            <p style="font-size: 0.9rem; color: #666;">We’ll contact you within 24–48 hours. You can also reach us on <a href="https://wa.me/254713947746">WhatsApp</a> for faster response.</p>
+            <div class="quote-actions">
+              <button type="button" class="btn-prev" id="prev4">← Back</button>
+              <button type="submit" class="btn-submit" id="btnSubmit">Submit request</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="quote-thankyou" id="quoteThankyou">
+        <h2>Thank you</h2>
+        <p>We’ve received your quote request and will get back to you within <strong>24–48 hours</strong>.</p>
+        <p>For immediate help, message us on <a href="https://wa.me/254713947746">WhatsApp</a> or call <a href="tel:+254755550708">+254 755 550 708</a>.</p>
+        <p><a href="index.html" class="btn-primary" style="display:inline-block;margin-top:1rem;">Back to Home</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p><strong>Ndakaru Brick and Construction</strong></p>
+        <p>Ndakaru Village, Sirisia, Bungoma — Building Kenya. One Brick at a Time.</p>
+      </div>
+      <div>
+        <p><a href="https://ndakaru.co.ke">ndakaru.co.ke</a> · <a href="contact.html">Contact</a> · <a href="get-a-quote.html">Get a Quote</a> · <a href="sitemap.xml">Sitemap</a></p>
+      </div>
+      <div>
+        <p><a href="tel:+254755550708">+254 755 550 708</a> · <a href="https://wa.me/254713947746">WhatsApp</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> Ndakaru Brick and Construction. Ndakaru Village, Sirisia, Bungoma. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <div class="nav-inner">
+      <a href="index.html"><span class="icon">🏠</span> Home</a>
+      <a href="services.html"><span class="icon">🛠</span> Services</a>
+      <a href="projects.html"><span class="icon">📁</span> Projects</a>
+      <a href="contact.html"><span class="icon">📞</span> Contact</a>
+    </div>
+  </nav>
+  <script src="app.js"></script>
+  <script>
+    (function() {
+      var form = document.getElementById('quoteWizardForm');
+      var steps = document.querySelectorAll('.quote-step');
+      var progress = document.querySelectorAll('#quoteProgress span');
+      var thankyou = document.getElementById('quoteThankyou');
+      var formWrap = document.getElementById('quoteForm');
+      var current = 1;
+      function go(step) {
+        if (step < 1 || step > 4) return;
+        current = step;
+        steps.forEach(function(s) {
+          var n = parseInt(s.getAttribute('data-step'), 10);
+          s.classList.toggle('active', n === current);
+        });
+        progress.forEach(function(p, i) {
+          p.classList.remove('current', 'done');
+          if (i + 1 < current) p.classList.add('done');
+          else if (i + 1 === current) p.classList.add('current');
+        });
+        document.getElementById('quoteProgress').setAttribute('aria-valuenow', current);
+        if (current === 4) buildReview();
+      }
+      function buildReview() {
+        var d = form;
+        var parts = [
+          'Project: ' + (d.projectType.value || '—'),
+          'Location: ' + (d.location.value || '—'),
+          'Timeline: ' + (d.timeline.value || '—'),
+          'Budget: ' + (d.budget.value || '—'),
+          'Name: ' + (d.name.value || '—'),
+          'Phone: ' + (d.phone.value || '—'),
+          'Email: ' + (d.email.value || '—')
+        ];
+        document.getElementById('reviewSummary').textContent = parts.join('\n');
+      }
+      document.getElementById('next1').onclick = function() { go(2); };
+      document.getElementById('next2').onclick = function() { go(3); };
+      document.getElementById('next3').onclick = function() { go(4); };
+      document.getElementById('prev2').onclick = function() { go(1); };
+      document.getElementById('prev3').onclick = function() { go(2); };
+      document.getElementById('prev4').onclick = function() { go(3); };
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        formWrap.classList.add('hide');
+        thankyou.classList.add('show');
+        window.scrollTo(0, thankyou.offsetTop - 100);
+      };
+    })();
+  </script>
+</body>
+</html>
