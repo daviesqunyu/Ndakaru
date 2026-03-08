@@ -10,3 +10,8 @@
 .projects-portfolio-heading::after {
   display: block;
 }
+
+@media (max-width: 480px) {
+  .page-projects .page-content { padding: 0 4px; }
+  .projects-portfolio-heading { font-size: 1.35rem; margin-top: 1.5rem; }
+}

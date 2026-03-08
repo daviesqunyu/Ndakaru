@@ -130,3 +130,17 @@
     padding: 2.5rem 0;
   }
 }
+
+@media (max-width: 480px) {
+  .page-content { padding: 0 4px; }
+  .page-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .btn-page {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+}

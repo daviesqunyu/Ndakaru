@@ -16,6 +16,10 @@
   overflow: hidden;
 }
 
+.container.clickable {
+  cursor: pointer;
+}
+
 .track {
   position: absolute;
   inset: 0;
@@ -162,12 +166,24 @@
     max-height: 320px;
   }
 
-  .prev,
-  .next {
+  .prev {
     width: 40px;
     height: 40px;
     font-size: 1.5rem;
     left: 8px;
+  }
+
+  .next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
     right: 8px;
   }
+
+  .caption {
+    padding: 0.75rem 0.5rem 2.5rem;
+    font-size: 0.85rem;
+  }
+
+  .dots { bottom: 12px; gap: 6px; }
 }

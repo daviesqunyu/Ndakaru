@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SITE_URL, CONTACT, WHATSAPP_URL } from '../data/site';
+import {
+  IconHome, IconInfo, IconServices, IconProjects, IconGallery, IconBlog, IconQuote, IconContact,
+  IconImpact, IconSupport, IconPhone, IconWhatsApp, IconEmail, IconUser, IconGlobe,
+} from './FooterIcons';
 import './Layout.css';
 
 const NAV_LINKS = [
@@ -64,17 +68,20 @@ export default function Layout({ children }) {
           </button>
         </div>
         <ul className="nav-overlay-links">
-          {NAV_LINKS.map(({ to, label }) => (
-            <li key={to}>
-              <Link to={to} className={isActive(to) ? 'active' : ''} onClick={() => setMenuOpen(false)}>
-                {label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ to, label }) => {
+            const Icon = to === '/' ? IconHome : to === '/about' ? IconInfo : to === '/services' ? IconServices : to === '/projects' ? IconProjects : to === '/gallery' ? IconGallery : to === '/blog' ? IconBlog : to === '/impact' ? IconImpact : to === '/support' ? IconSupport : to === '/contact' ? IconContact : IconQuote;
+            return (
+              <li key={to}>
+                <Link to={to} className={isActive(to) ? 'active' : ''} onClick={() => setMenuOpen(false)}>
+                  <span className="nav-overlay-icon" aria-hidden><Icon /></span> {label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <div className="nav-overlay-footer">
-          <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="nav-overlay-cta">📞 {CONTACT.phone}</a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="nav-overlay-cta nav-overlay-whatsapp">WhatsApp</a>
+          <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="nav-overlay-cta"><IconPhone /> {CONTACT.phone}</a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="nav-overlay-cta nav-overlay-whatsapp"><IconWhatsApp /> WhatsApp</a>
         </div>
       </div>
 
@@ -91,31 +98,31 @@ export default function Layout({ children }) {
             <div className="footer-links">
               <h4 className="footer-heading">Quick links</h4>
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/services">Services</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/gallery">Gallery</Link></li>
-                <li><Link to="/blog">Blog</Link></li>
-                <li><Link to="/get-a-quote">Get a Quote</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/"><span className="footer-icon" aria-hidden><IconHome /></span> Home</Link></li>
+                <li><Link to="/about"><span className="footer-icon" aria-hidden><IconInfo /></span> About</Link></li>
+                <li><Link to="/services"><span className="footer-icon" aria-hidden><IconServices /></span> Services</Link></li>
+                <li><Link to="/projects"><span className="footer-icon" aria-hidden><IconProjects /></span> Projects</Link></li>
+                <li><Link to="/gallery"><span className="footer-icon" aria-hidden><IconGallery /></span> Gallery</Link></li>
+                <li><Link to="/blog"><span className="footer-icon" aria-hidden><IconBlog /></span> Blog</Link></li>
+                <li><Link to="/get-a-quote"><span className="footer-icon" aria-hidden><IconQuote /></span> Get a Quote</Link></li>
+                <li><Link to="/contact"><span className="footer-icon" aria-hidden><IconContact /></span> Contact</Link></li>
               </ul>
             </div>
             <div className="footer-more">
               <h4 className="footer-heading">More</h4>
               <ul>
-                <li><Link to="/impact">Impact</Link></li>
-                <li><Link to="/support">Support</Link></li>
+                <li><Link to="/impact"><span className="footer-icon" aria-hidden><IconImpact /></span> Impact</Link></li>
+                <li><Link to="/support"><span className="footer-icon" aria-hidden><IconSupport /></span> Support</Link></li>
               </ul>
             </div>
             <div className="footer-contact">
               <h4 className="footer-heading">Contact</h4>
-              <p><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}>{CONTACT.phone}</a></p>
-              <p><a href={`tel:${CONTACT.phoneAlt.replace(/\s/g, '')}`}>{CONTACT.phoneAlt}</a></p>
-              <p><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
-              <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
-              <p><a href={`mailto:${CONTACT.founderEmail}`}>Founder: {CONTACT.founderEmail}</a></p>
-              <p><a href={SITE_URL} target="_blank" rel="noopener noreferrer">ndakaru.co.ke</a></p>
+              <p><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="footer-contact-link footer-contact-link--phone"><span className="footer-icon" aria-hidden><IconPhone /></span> {CONTACT.phone}</a></p>
+              <p><a href={`tel:${CONTACT.phoneAlt.replace(/\s/g, '')}`} className="footer-contact-link footer-contact-link--phone"><span className="footer-icon" aria-hidden><IconPhone /></span> {CONTACT.phoneAlt}</a></p>
+              <p><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="footer-contact-link footer-contact-link--whatsapp"><span className="footer-icon" aria-hidden><IconWhatsApp /></span> WhatsApp</a></p>
+              <p><a href={`mailto:${CONTACT.email}`} className="footer-contact-link footer-contact-link--email"><span className="footer-icon" aria-hidden><IconEmail /></span> {CONTACT.email}</a></p>
+              <p><a href={`mailto:${CONTACT.founderEmail}`} className="footer-contact-link footer-contact-link--founder"><span className="footer-icon" aria-hidden><IconUser /></span> Founder: {CONTACT.founderEmail}</a></p>
+              <p><a href={SITE_URL} target="_blank" rel="noopener noreferrer" className="footer-contact-link footer-contact-link--web"><span className="footer-icon" aria-hidden><IconGlobe /></span> ndakaru.co.ke</a></p>
             </div>
           </div>
         </div>

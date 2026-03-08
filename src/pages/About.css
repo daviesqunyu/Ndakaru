@@ -39,6 +39,15 @@
   }
 }
 
+@media (max-width: 480px) {
+  .page-about .about-values-grid { gap: 1rem; }
+  .page-about .about-value-card { padding: 1.25rem 1rem; }
+  .page-about .about-value-card h4 { font-size: 1.1rem; }
+  .page-about .about-value-card p { font-size: 0.9rem; }
+  .page-about .about-values-title,
+  .page-about .about-photos-title { font-size: 1.2rem; }
+}
+
 .page-about .about-value-card {
   background: var(--white);
   padding: 1.75rem 1.5rem;

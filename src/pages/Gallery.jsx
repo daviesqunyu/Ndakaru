@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
+import MediaLightbox from '../components/MediaLightbox';
 import './PageShared.css';
 import './Gallery.css';
 
@@ -13,6 +14,7 @@ const FILTERS = [
 
 export default function Gallery() {
   const [filter, setFilter] = useState('all');
+  const [lightboxItem, setLightboxItem] = useState(null);
 
   const filtered = useMemo(() => {
     if (filter === 'all') return GALLERY_MEDIA;
@@ -51,7 +53,15 @@ export default function Gallery() {
 
           <div className="gallery-grid-page">
             {filtered.map((item, i) => (
-              <article key={`${item.type}-${item.src}-${i}`} className="gallery-card-page">
+              <article
+                key={`${item.type}-${item.src}-${i}`}
+                className="gallery-card-page gallery-card-page-clickable"
+                role="button"
+                tabIndex={0}
+                onClick={() => setLightboxItem(item)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLightboxItem(item); } }}
+                aria-label={`View ${item.type === 'video' ? 'video' : 'image'}: ${item.title}`}
+              >
                 <div className="gallery-card-media">
                   {item.type === 'video' ? (
                     <>
@@ -61,7 +71,7 @@ export default function Gallery() {
                         loop
                         playsInline
                         preload="metadata"
-                        aria-label={item.title}
+                        aria-hidden
                       />
                       <div className="video-overlay" aria-hidden="true">
                         <span>▶</span>
@@ -70,7 +80,7 @@ export default function Gallery() {
                   ) : (
                     <img
                       src={encodedMediaSrc(item.src)}
-                      alt={item.title}
+                      alt=""
                       loading="lazy"
                     />
                   )}
@@ -82,6 +92,7 @@ export default function Gallery() {
               </article>
             ))}
           </div>
+          {lightboxItem && <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
 
           {filtered.length === 0 && (
             <div className="gallery-empty">

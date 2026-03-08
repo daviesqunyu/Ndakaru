@@ -156,3 +156,37 @@
     display: inline;
   }
 }
+
+/* Combined pill: stack or shrink on small screens so it doesn't overflow */
+@media (max-width: 520px) {
+  .contact-icons--combined {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    border-radius: 16px;
+    gap: 0.35rem;
+    justify-content: center;
+  }
+  .contact-icons--combined .contact-icon {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+  .contact-icons--combined .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-icons--combined {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-icons--combined .contact-icon {
+    width: 100%;
+    justify-content: center;
+  }
+}

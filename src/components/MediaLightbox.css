@@ -1,0 +1,104 @@
+.media-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 4rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  animation: mediaLightboxFadeIn 0.2s ease;
+}
+
+@keyframes mediaLightboxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.media-lightbox-content {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  position: relative;
+}
+
+.media-lightbox-img {
+  max-width: 100%;
+  max-height: calc(100vh - 5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.media-lightbox-video {
+  max-width: 100%;
+  max-height: calc(100vh - 5rem);
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  background: #000;
+}
+
+.media-lightbox-caption {
+  margin: 1rem 0 0;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 560px;
+  line-height: 1.4;
+}
+
+.media-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2001;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.media-lightbox-close:hover,
+.media-lightbox-close:focus {
+  background: rgba(255, 255, 255, 0.25);
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  .media-lightbox {
+    padding: 3rem 0.75rem 4rem;
+  }
+  .media-lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.75rem;
+  }
+  .media-lightbox-img,
+  .media-lightbox-video {
+    max-height: calc(100vh - 4.5rem);
+  }
+  .media-lightbox-caption {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+}

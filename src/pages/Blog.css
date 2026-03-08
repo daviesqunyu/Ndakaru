@@ -157,6 +157,15 @@
   line-height: 1.55;
 }
 
+@media (max-width: 480px) {
+  .blog-intro p { font-size: 0.95rem; }
+  .blog-posts { gap: 1.25rem; margin: 1.5rem 0; }
+  .blog-post-card-img { height: 160px; }
+  .blog-post-card-body { padding: 1rem 1rem 1.25rem; }
+  .blog-post-card-body h3 { font-size: 1.1rem; }
+  .blog-cta { margin-top: 1.5rem; padding: 1.25rem; }
+}
+
 /* Stay updated strip */
 .blog-cta {
   margin-top: 2.5rem;

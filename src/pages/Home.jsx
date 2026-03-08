@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GallerySlideshow from '../components/GallerySlideshow';
 import HeroBgSlideshow from '../components/HeroBgSlideshow';
 import ContactIcons from '../components/ContactIcons';
+import MediaLightbox from '../components/MediaLightbox';
+import { IconServices, IconGallery } from '../components/FooterIcons';
 import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
 import './Home.css';
@@ -25,6 +28,8 @@ const INTRO_PHOTOS = [
 ];
 
 export default function Home() {
+  const [lightboxItem, setLightboxItem] = useState(null);
+
   return (
     <div className="home-page">
       <section className="hero" id="hero">
@@ -75,7 +80,7 @@ export default function Home() {
       {/* What We Do — image-led service tiles */}
       <section id="what-we-do" className="home-services">
         <div className="container">
-          <p className="home-section-label">Our expertise</p>
+          <p className="home-section-label"><span className="section-label-icon" aria-hidden><IconServices /></span> Our expertise</p>
           <h2 className="home-section-title">What We Do</h2>
           <p className="home-section-desc">Brick manufacturing and construction from Sirisia, Ndakaru.</p>
           <div className="home-services-grid">
@@ -115,11 +120,11 @@ export default function Home() {
 
       <section id="gallery" className="gallery-section">
         <div className="container">
-          <p className="section-label">Our work</p>
+          <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> Our work</p>
           <h2>Project Gallery</h2>
           <p className="gallery-section-desc">See our bricks, builds, and team in action — photos and videos from Ndakaru.</p>
 
-          <GallerySlideshow />
+          <GallerySlideshow onOpenLightbox={setLightboxItem} />
 
           <div className="gallery-cta-strip">
             <Link to="/gallery" className="btn-gallery-primary">
@@ -130,16 +135,26 @@ export default function Home() {
 
           <div className="gallery-grid">
             {GALLERY_MEDIA.map((item, i) => (
-              <div key={`${item.type}-${item.src}-${i}`} className="gallery-card" data-category={item.category}>
+              <div
+                key={`${item.type}-${item.src}-${i}`}
+                className="gallery-card gallery-card-clickable"
+                data-category={item.category}
+                role="button"
+                tabIndex={0}
+                onClick={() => setLightboxItem(item)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLightboxItem(item); } }}
+                aria-label={`View ${item.type === 'video' ? 'video' : 'image'}: ${item.title}`}
+              >
                 {item.type === 'video' ? (
-                  <video src={encodedMediaSrc(item.src)} muted loop playsInline preload="metadata" aria-label={item.title} />
+                  <video src={encodedMediaSrc(item.src)} muted loop playsInline preload="metadata" aria-hidden />
                 ) : (
-                  <img src={encodedMediaSrc(item.src)} alt={item.title} loading="lazy" />
+                  <img src={encodedMediaSrc(item.src)} alt="" loading="lazy" />
                 )}
                 <span className="gallery-caption">{item.type === 'video' ? '▶ ' : ''}{item.title}</span>
               </div>
             ))}
           </div>
+          {lightboxItem && <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
           <div className="gallery-actions">
             <Link to="/gallery" className="btn-cta-primary">View full gallery</Link>
             <Link to="/projects" className="btn-cta-secondary">View Projects</Link>

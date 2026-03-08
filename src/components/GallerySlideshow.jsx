@@ -4,7 +4,7 @@ import styles from './GallerySlideshow.module.css';
 
 const AUTOPLAY_MS = 6000;
 
-export default function GallerySlideshow() {
+export default function GallerySlideshow({ onOpenLightbox }) {
   const [index, setIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [srcState, setSrcState] = useState({});
@@ -88,7 +88,14 @@ export default function GallerySlideshow() {
       onKeyDown={onKeyDown}
       tabIndex={0}
     >
-      <div className={styles.container}>
+      <div
+        className={`${styles.container} ${onOpenLightbox ? styles.clickable : ''}`}
+        onClick={() => onOpenLightbox?.(GALLERY_MEDIA[index])}
+        role={onOpenLightbox ? 'button' : undefined}
+        tabIndex={onOpenLightbox ? 0 : undefined}
+        onKeyDown={onOpenLightbox ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenLightbox(GALLERY_MEDIA[index]); } } : undefined}
+        aria-label={onOpenLightbox ? `View current: ${GALLERY_MEDIA[index]?.title}. Click to open full size.` : undefined}
+      >
         <div className={styles.track}>
           {GALLERY_MEDIA.map((slide, i) => {
             const currentSrc = getSlideSrc(slide);
@@ -127,9 +134,9 @@ export default function GallerySlideshow() {
             );
           })}
         </div>
-        <button type="button" className={styles.prev} onClick={prev} aria-label="Previous">&#10094;</button>
-        <button type="button" className={styles.next} onClick={next} aria-label="Next">&#10095;</button>
-        <div className={styles.dots} role="tablist" aria-label="Slide navigation">
+        <button type="button" className={styles.prev} onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">&#10094;</button>
+        <button type="button" className={styles.next} onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">&#10095;</button>
+        <div className={styles.dots} role="tablist" aria-label="Slide navigation" onClick={(e) => e.stopPropagation()}>
           {GALLERY_MEDIA.map((_, i) => (
             <button
               key={i}

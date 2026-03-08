@@ -22,6 +22,13 @@
   }
 }
 
+@media (max-width: 480px) {
+  .page-services .services-grid { gap: 1.25rem; margin: 1.5rem 0; }
+  .page-services .service-tile-img-wrap { height: 160px; }
+  .page-services .service-tile-body { padding: 1.25rem 1rem; }
+  .page-services .service-tile-body h3 { font-size: 1.15rem; }
+}
+
 .page-services .service-tile {
   background: var(--white);
   border-radius: 20px;
