@@ -1,0 +1,12 @@
+.page-projects .page-content {
+  max-width: 900px;
+}
+
+.projects-portfolio-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects-portfolio-heading::after {
+  display: block;
+}

@@ -1,0 +1,150 @@
+/* Gallery page — all media, filters, better arrangement */
+
+.gallery-section-inner {
+  padding: 2.5rem 0 3rem;
+}
+
+.gallery-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.gallery-filter-btn {
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--green);
+  background: var(--white);
+  color: var(--green);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.gallery-filter-btn:hover {
+  background: rgba(26, 58, 27, 0.08);
+  transform: translateY(-1px);
+}
+
+.gallery-filter-btn.active {
+  background: var(--green);
+  color: var(--white);
+}
+
+.gallery-count {
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid: responsive, all items same card style */
+.gallery-grid-page {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 560px) {
+  .gallery-grid-page {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery-grid-page {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.gallery-card-page {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background: var(--white);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-card-page:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--green);
+}
+
+.gallery-card-media img,
+.gallery-card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-card-page .video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.gallery-card-page .video-overlay span {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--green);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-card-info {
+  padding: 1rem;
+}
+
+.gallery-card-page .gallery-caption-page {
+  position: static;
+  background: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
+}
+
+.gallery-card-page .gallery-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.gallery-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #555;
+}
+
+.gallery-empty p {
+  margin: 0.5rem 0 0;
+}

@@ -1,0 +1,85 @@
+:root {
+  --green: #1a3a1b;
+  --terracotta: #C4763A;
+  --cream: #FAF6F0;
+  --gold: #D4A843;
+  --white: #fff;
+  --text: #2d3436;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--cream);
+  overflow-x: hidden;
+  max-width: 100%;
+}
+#root { min-height: 100vh; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+h2 {
+  font-size: 2.25rem;
+  color: var(--green);
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--terracotta));
+  border-radius: 2px;
+}
+
+/* Shared page hero with background image */
+.page-hero {
+  position: relative;
+  min-height: 42vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding: 5rem 1.5rem 3rem;
+  background: var(--green) center center / cover no-repeat;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,58,27,0.88) 0%, rgba(26,58,27,0.75) 100%);
+  pointer-events: none;
+}
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero h1 { color: var(--white); margin-bottom: 0.5rem; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.page-hero p { margin: 0; opacity: 0.95; font-size: 1.05rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* Content section with background image (reduces white space) */
+.section-with-bg {
+  position: relative;
+  padding: 3.5rem 0;
+  background: var(--cream) center center / cover no-repeat;
+  background-attachment: scroll;
+}
+.section-with-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(250,246,240,0.92) 0%, rgba(250,246,240,0.97) 100%);
+  pointer-events: none;
+}
+.section-with-bg .container { position: relative; z-index: 1; }
+.section-with-bg h2::after { display: none; }
+@media (min-width: 900px) {
+  .section-with-bg { background-attachment: fixed; }
+}

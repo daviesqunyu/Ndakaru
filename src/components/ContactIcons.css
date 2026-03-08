@@ -1,0 +1,158 @@
+.contact-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Combined: Email + Phone + WhatsApp in one section (single pill) */
+.contact-icons--combined {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: nowrap;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50px;
+  padding: 0.35rem 0.35rem 0.35rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.contact-icons--combined .contact-icon {
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  min-height: 44px;
+  font-size: 0.9rem;
+}
+
+.contact-icons--combined .contact-icon--email {
+  background: transparent;
+  border: none;
+  color: var(--green);
+}
+
+.contact-icons--combined .contact-icon--phone {
+  background: rgba(26, 58, 27, 0.08);
+  color: var(--green);
+  border: none;
+}
+
+.contact-icons--combined .contact-icon--phone:hover {
+  background: rgba(26, 58, 27, 0.15);
+  box-shadow: none;
+}
+
+.contact-icons--combined .contact-icon--whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.contact-icons--dark.contact-icons--combined {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icons--dark.contact-icons--combined .contact-icon--email {
+  color: var(--white);
+}
+
+.contact-icons--dark.contact-icons--combined .contact-icon--phone {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+.contact-icons--dark.contact-icons--combined .contact-icon--phone:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.contact-icon--phone {
+  background: rgba(26, 58, 27, 0.1);
+  color: var(--green);
+  border: none;
+}
+
+.contact-icon--phone:hover {
+  background: rgba(26, 58, 27, 0.18);
+  box-shadow: 0 4px 14px rgba(26, 58, 27, 0.2);
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.contact-icon:hover {
+  transform: translateY(-2px);
+}
+
+.contact-icon--whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: none;
+}
+
+.contact-icon--whatsapp:hover {
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  color: #fff;
+}
+
+.contact-icon--email {
+  background: var(--white);
+  color: var(--green);
+  border: 2px solid var(--white);
+}
+
+.contact-icon--email:hover {
+  background: rgba(255,255,255,0.95);
+  color: var(--green);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Dark variant for green/dark backgrounds */
+.contact-icons--dark .contact-icon--email {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.contact-icons--dark .contact-icon--email:hover {
+  background: var(--white);
+  color: var(--green);
+}
+
+.contact-icons--compact .contact-icon {
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+
+.contact-icons--compact .contact-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 480px) {
+  .contact-icons {
+    gap: 0.75rem;
+  }
+  .contact-icon {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+  .contact-icon span {
+    display: inline;
+  }
+}

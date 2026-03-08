@@ -1,0 +1,89 @@
+/* Services page — clean card layout */
+
+.page-services .page-content {
+  max-width: 960px;
+}
+
+.page-services .services-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-services .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .page-services .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-services .service-tile {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(26, 58, 27, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-services .service-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(26, 58, 27, 0.15);
+}
+
+.page-services .service-tile-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.page-services .service-tile-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.page-services .service-tile:hover .service-tile-img-wrap img {
+  transform: scale(1.06);
+}
+
+.page-services .service-tile-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.page-services .service-tile-body {
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+
+.page-services .service-tile-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--green);
+  margin: 0 0 0.5rem;
+}
+
+.page-services .service-tile-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.55;
+}

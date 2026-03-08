@@ -1,0 +1,276 @@
+/* Shared visual blocks for inner pages (About, Services, Impact, etc.) */
+
+.visual-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--green);
+  text-align: center;
+  margin: 1.5rem 0 0.75rem;
+}
+
+/* ---- Value / feature cards (icon + title + line) ---- */
+.visual-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.visual-card {
+  background: var(--white);
+  padding: 1.25rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(26, 58, 27, 0.08);
+  border-top: 4px solid var(--green);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.visual-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26, 58, 27, 0.12);
+}
+
+.visual-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.visual-card strong {
+  display: block;
+  color: var(--green);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.visual-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ---- Image strip (2–4 thumbnails) ---- */
+.visual-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.visual-strip-item {
+  width: 140px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.visual-strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 600px) {
+  .visual-strip-item {
+    width: 160px;
+    height: 110px;
+  }
+}
+
+/* ---- Stats strip (number + label) ---- */
+.visual-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(26, 58, 27, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(26, 58, 27, 0.12);
+}
+
+.visual-stat {
+  text-align: center;
+}
+
+.visual-stat-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.2;
+}
+
+.visual-stat-label {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 600;
+}
+
+/* ---- Steps (1 → 2 → 3) ---- */
+.visual-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.visual-step {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.visual-step-num {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 0.75rem;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-step strong {
+  display: block;
+  color: var(--green);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.visual-step p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* ---- Single highlight image + text (e.g. Contact) ---- */
+.visual-highlight {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  align-items: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 560px) {
+  .visual-highlight {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+.visual-highlight-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.visual-highlight-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visual-highlight-text {
+  text-align: left;
+}
+
+.visual-highlight-text p {
+  margin: 0 0 0.5rem;
+  color: #444;
+}
+
+/* ---- Service card with image on top ---- */
+.service-card-with-img {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(26, 58, 27, 0.08);
+  border-left: 4px solid var(--green);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card-with-img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26, 58, 27, 0.12);
+}
+
+.service-card-with-img .service-card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card-with-img .service-card-body {
+  padding: 1.25rem;
+}
+
+.service-card-with-img .service-icon {
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Blog placeholder cards ---- */
+.blog-placeholder-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.blog-placeholder-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26, 58, 27, 0.08);
+  transition: transform 0.2s;
+}
+
+.blog-placeholder-card:hover {
+  transform: translateY(-2px);
+}
+
+.blog-placeholder-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-placeholder-card .blog-placeholder-body {
+  padding: 1rem;
+}
+
+.blog-placeholder-card strong {
+  color: var(--green);
+  font-size: 0.95rem;
+}
+
+.blog-placeholder-card p {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: #555;
+}
