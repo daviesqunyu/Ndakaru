@@ -59,9 +59,10 @@ export default function About() {
 
           <div className="page-actions">
             <Link to="/contact" className="btn-page">Contact</Link>
+            <Link to="/get-a-quote" className="btn-page">Get a Quote</Link>
             <ContactIcons variant="default" />
           </div>
-          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link></p>
+          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link> · <Link to="/services">Services</Link></p>
         </div>
       </section>
     </div>

@@ -48,6 +48,10 @@
   .page-about .about-photos-title { font-size: 1.2rem; }
 }
 
+.page-about .about-values-grid {
+  perspective: 1000px;
+}
+
 .page-about .about-value-card {
   background: var(--white);
   padding: 1.75rem 1.5rem;
@@ -56,10 +60,11 @@
   border-left: 5px solid var(--terracotta);
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
 }
 
 .page-about .about-value-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) rotateX(2deg);
   box-shadow: 0 12px 32px rgba(26, 58, 27, 0.15);
 }
 

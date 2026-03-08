@@ -44,6 +44,7 @@ export default function Support() {
 
           <p>Your support helps us train more youth, employ more women, and deliver quality construction to the community.</p>
           <div className="page-actions">
+            <Link to="/get-a-quote" className="btn-page">Get a Quote</Link>
             <ContactIcons variant="default" />
           </div>
           <p style={{ marginTop: '1.5rem' }}><Link to="/contact">Contact</Link> · <Link to="/">Home</Link></p>

@@ -170,7 +170,23 @@
   transform: rotate(45deg);
 }
 
-/* ========== MIDDLE: Welcome + photos (visual bridge) ========== */
+/* ========== OUR WORK — slideshow (below hero, above Your Local Partner) ========== */
+.home-our-work {
+  padding: 3rem 0 3.5rem;
+  background: var(--cream);
+}
+
+.home-our-work .gallery-section-desc {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .home-our-work {
+    padding: 2rem 0 2.5rem;
+  }
+}
+
+/* ========== MIDDLE: Welcome + photos (Your Local Partner) ========== */
 .home-middle {
   background: linear-gradient(180deg, #fff 0%, #f8f5f0 50%, var(--cream) 100%);
   padding: 3.5rem 0 4rem;

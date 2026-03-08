@@ -87,7 +87,7 @@ export default function Blog() {
               <ContactIcons variant="default" />
             </div>
             <p style={{ marginTop: '1rem', marginBottom: 0, fontSize: '0.9rem' }}>
-              <Link to="/contact">Contact us</Link> · <Link to="/">Home</Link>
+              <Link to="/contact">Contact</Link> · <Link to="/get-a-quote">Get a Quote</Link> · <Link to="/">Home</Link>
             </p>
           </div>
         </div>

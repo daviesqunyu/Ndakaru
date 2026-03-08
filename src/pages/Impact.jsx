@@ -45,6 +45,7 @@ export default function Impact() {
           <p>Women and youth employed, quality bricks supplied to schools and homes. Partner with us to expand impact.</p>
           <div className="page-actions">
             <Link to="/support" className="btn-page">Support us</Link>
+            <Link to="/get-a-quote" className="btn-page">Get a Quote</Link>
             <ContactIcons variant="default" />
           </div>
           <p style={{ marginTop: '1.5rem' }}><Link to="/contact">Contact</Link> · <Link to="/">Home</Link></p>

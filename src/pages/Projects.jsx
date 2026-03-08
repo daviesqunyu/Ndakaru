@@ -23,7 +23,7 @@ export default function Projects() {
             <Link to="/gallery" className="btn-page">View gallery</Link>
             <ContactIcons variant="default" />
           </div>
-          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link></p>
+          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link> · <Link to="/contact">Contact</Link></p>
         </div>
       </section>
     </div>

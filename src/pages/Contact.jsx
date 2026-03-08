@@ -34,7 +34,7 @@ export default function Contact() {
           <div className="page-actions contact-actions">
             <ContactIcons variant="default" />
           </div>
-          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link></p>
+          <p style={{ marginTop: '1.5rem' }}><Link to="/">Home</Link> · <Link to="/get-a-quote">Get a Quote</Link></p>
         </div>
       </section>
     </div>

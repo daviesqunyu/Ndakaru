@@ -100,7 +100,7 @@ export default function Gallery() {
             </div>
           )}
 
-          <p style={{ marginTop: '2rem', textAlign: 'center' }}><Link to="/">Home</Link></p>
+          <p style={{ marginTop: '2rem', textAlign: 'center' }}><Link to="/">Home</Link> · <Link to="/contact">Contact</Link></p>
         </div>
       </section>
     </div>

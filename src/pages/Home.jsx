@@ -46,13 +46,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a href="#intro" className="hero-scroll-hint" aria-label="Scroll to explore">
+        <a href="#our-work" className="hero-scroll-hint" aria-label="Scroll to Our Work">
           <span className="chevron" aria-hidden="true" />
           <span>Explore</span>
         </a>
       </section>
 
-      {/* Middle: Welcome + visual strip — bridge between hero and gallery */}
+      {/* Our Work — Project Gallery slideshow (right below hero) */}
+      <section id="our-work" className="home-our-work">
+        <div className="container">
+          <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> Our work</p>
+          <h2>Project Gallery</h2>
+          <p className="gallery-section-desc">See our bricks, builds, and team in action — photos and videos from Ndakaru.</p>
+          <GallerySlideshow onOpenLightbox={setLightboxItem} />
+          <div className="gallery-cta-strip">
+            <Link to="/gallery" className="btn-gallery-primary">
+              <span className="btn-gallery-icon" aria-hidden="true">🖼</span>
+              View full gallery — all photos & videos
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Your Local Partner */}
       <section id="intro" className="home-middle">
         <div className="home-middle-inner container">
           <div className="home-welcome">
@@ -120,19 +136,9 @@ export default function Home() {
 
       <section id="gallery" className="gallery-section">
         <div className="container">
-          <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> Our work</p>
-          <h2>Project Gallery</h2>
-          <p className="gallery-section-desc">See our bricks, builds, and team in action — photos and videos from Ndakaru.</p>
-
-          <GallerySlideshow onOpenLightbox={setLightboxItem} />
-
-          <div className="gallery-cta-strip">
-            <Link to="/gallery" className="btn-gallery-primary">
-              <span className="btn-gallery-icon" aria-hidden="true">🖼</span>
-              View full gallery — all photos & videos
-            </Link>
-          </div>
-
+          <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> More from the gallery</p>
+          <h2>Gallery Grid</h2>
+          <p className="gallery-section-desc">Browse all photos and videos from Ndakaru.</p>
           <div className="gallery-grid">
             {GALLERY_MEDIA.map((item, i) => (
               <div
