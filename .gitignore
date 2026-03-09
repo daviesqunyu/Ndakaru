@@ -9,3 +9,6 @@ dist/
 .env.*
 *.log
 .DS_Store
+
+# Internal / planning (not for deploy)
+NDAKARU-NEXT-IDEAS.md

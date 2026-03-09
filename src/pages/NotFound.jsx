@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { SITE_NAME } from '../data/site';
 import './PageShared.css';
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = `Page Not Found | ${SITE_NAME}`;
+  }, []);
+
   return (
     <div className="container page-not-found">
       <div className="page-not-found-code">404</div>

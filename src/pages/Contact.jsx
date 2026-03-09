@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ContactIcons from '../components/ContactIcons';
+import { IconLocation } from '../components/FooterIcons';
 import { BG_IMAGES } from '../data/images';
 import { CONTACT } from '../data/site';
 import './PageShared.css';
@@ -22,7 +23,10 @@ export default function Contact() {
               <img src={BG_IMAGES.contact} alt="Ndakaru team at the site" loading="lazy" />
             </div>
             <div className="visual-highlight-text">
-              <p className="lead" style={{ marginBottom: '1rem' }}>Sirisia, Ndakaru — Bungoma County, Kenya</p>
+              <div className="location-visual" aria-label="Location">
+                <span className="location-visual-icon" aria-hidden><IconLocation /></span>
+                <span className="location-visual-text"><strong>Sirisia, Ndakaru</strong> — Bungoma County, Kenya</span>
+              </div>
               <p className="contact-label">Phone</p>
               <p><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="contact-tel">{CONTACT.phone}</a> · <a href={`tel:${CONTACT.phoneAlt.replace(/\s/g, '')}`} className="contact-tel">{CONTACT.phoneAlt}</a></p>
               <p className="contact-label">Company email</p>

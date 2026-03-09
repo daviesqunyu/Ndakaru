@@ -320,3 +320,45 @@
   font-size: 0.85rem;
   color: #555;
 }
+
+/* ---- Location visual (Contact, About hero, etc.) ---- */
+.location-visual {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1rem;
+  background: rgba(26, 58, 27, 0.08);
+  border: 1px solid rgba(26, 58, 27, 0.22);
+  border-radius: 50px;
+  font-size: 1rem;
+  color: var(--green);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.location-visual-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--terracotta);
+}
+
+.location-visual-text strong {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Hero variant: light text on dark background (About, etc.) */
+.page-hero .location-visual--hero {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.page-hero .location-visual--hero .location-visual-icon {
+  color: var(--gold, #d4a843);
+}
+
+.page-hero .location-visual--hero .location-visual-text strong {
+  color: inherit;
+}

@@ -4,18 +4,14 @@ This project is set up as a **React web app** (Vite + React), not React Native. 
 
 ## Run the React app locally
 
-1. **Switch to the React entry (one-time):**
-   - Rename your current `index.html` to `index-legacy.html` (backup of the static site).
-   - Rename `index-vite.html` to `index.html`.
-
-2. **Install and run:**
+1. **Install and run:**
    ```bash
    npm install
    npm run dev
    ```
    Open http://localhost:5173
 
-3. **Build for production:**
+2. **Build for production:**
    ```bash
    npm run build
    ```

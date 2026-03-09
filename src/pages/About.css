@@ -80,6 +80,12 @@
   font-size: 1.75rem;
 }
 
+.page-about .about-value-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--terracotta);
+}
+
 .page-about .about-value-card h4 {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;

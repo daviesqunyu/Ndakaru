@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { SITE_URL, CONTACT, WHATSAPP_URL } from '../data/site';
+import { SITE_URL, CONTACT, WHATSAPP_URL, PAGE_META, SITE_NAME, SITE_DESCRIPTION } from '../data/site';
 import {
   IconHome, IconInfo, IconServices, IconProjects, IconGallery, IconBlog, IconQuote, IconContact,
-  IconImpact, IconSupport, IconPhone, IconWhatsApp, IconEmail, IconUser, IconGlobe,
+  IconImpact, IconSupport, IconPhone, IconWhatsApp, IconEmail, IconUser, IconGlobe, IconLocation,
 } from './FooterIcons';
+import BackToTop from './BackToTop';
 import './Layout.css';
 
 const NAV_LINKS = [
@@ -20,9 +21,18 @@ const NAV_LINKS = [
   { to: '/get-a-quote', label: 'Get a Quote' },
 ];
 
+const DEFAULT_META = { title: SITE_NAME, description: SITE_DESCRIPTION };
+
 export default function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const meta = PAGE_META[location.pathname] || DEFAULT_META;
+    document.title = meta.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', meta.description);
+  }, [location.pathname]);
 
   const isActive = (to) => location.pathname === to || (to === '/' && location.pathname === '/');
 
@@ -93,7 +103,10 @@ export default function Layout({ children }) {
             <div className="footer-brand">
               <h3 className="footer-logo">Ndakaru Bricks & Construction</h3>
               <p className="footer-tagline">Building Kenya. One Brick at a Time.</p>
-              <p className="footer-location">📍 Ndakaru Village, Sirisia, Bungoma County</p>
+              <div className="footer-location-wrap" aria-label="Location">
+                <span className="footer-location-icon" aria-hidden><IconLocation /></span>
+                <span className="footer-location-text"><strong>Ndakaru Village</strong>, Sirisia, Bungoma County, Kenya</span>
+              </div>
             </div>
             <div className="footer-links">
               <h4 className="footer-heading">Quick links</h4>
@@ -143,6 +156,7 @@ export default function Layout({ children }) {
         <span className="float-cta-icon">💬</span>
         WhatsApp
       </a>
+      <BackToTop />
     </>
   );
 }

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
 import MediaLightbox from '../components/MediaLightbox';
+import { IconLocation } from '../components/FooterIcons';
 import './PageShared.css';
+import './PageVisuals.css';
 import './Gallery.css';
 
 const FILTERS = [
@@ -27,6 +29,10 @@ export default function Gallery() {
         <div className="container">
           <h1>Project Gallery</h1>
           <p>All photos and videos from Ndakaru Village, Sirisia, Bungoma.</p>
+          <div className="location-visual location-visual--hero" aria-label="Location">
+            <span className="location-visual-icon" aria-hidden><IconLocation /></span>
+            <span className="location-visual-text"><strong>Ndakaru Village</strong>, Sirisia, Bungoma County, Kenya</span>
+          </div>
         </div>
       </section>
       <section className="section-with-bg gallery-section-inner" style={{ backgroundImage: `url(${BG_IMAGES.construction})` }}>

@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import ContactIcons from '../components/ContactIcons';
+import { IconLocation } from '../components/FooterIcons';
 import { BG_IMAGES } from '../data/images';
 import './PageShared.css';
+import './PageVisuals.css';
 import './About.css';
 
 const VALUES = [
   { icon: '✓', title: 'Quality', text: 'Pressed bricks made to last. Every batch checked.' },
-  { icon: '📍', title: 'Local', text: 'Based in Sirisia, Ndakaru. We know the land and the people.' },
+  { icon: 'location', title: 'Local', text: 'Based in Sirisia, Ndakaru. We know the land and the people.', isLocation: true },
   { icon: '🛡', title: 'Trust', text: 'Women and youth employed. Real impact.' },
 ];
 
@@ -23,6 +25,10 @@ export default function About() {
         <div className="container">
           <h1>About Us</h1>
           <p>Quality bricks and construction from Sirisia, Ndakaru — Bungoma.</p>
+          <div className="location-visual location-visual--hero" aria-label="Location">
+            <span className="location-visual-icon" aria-hidden><IconLocation /></span>
+            <span className="location-visual-text"><strong>Sirisia, Ndakaru</strong> — Bungoma County, Kenya</span>
+          </div>
         </div>
       </section>
       <section className="section-with-bg" style={{ backgroundImage: `url(${BG_IMAGES.bricks})` }}>
@@ -38,7 +44,7 @@ export default function About() {
             <div className="about-values-grid">
               {VALUES.map((v, i) => (
                 <div key={i} className="about-value-card">
-                  <div className="about-value-icon" aria-hidden="true">{v.icon}</div>
+                  <div className="about-value-icon" aria-hidden="true">{v.isLocation ? <IconLocation /> : v.icon}</div>
                   <h4>{v.title}</h4>
                   <p>{v.text}</p>
                 </div>

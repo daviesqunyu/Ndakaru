@@ -4,7 +4,7 @@ import GallerySlideshow from '../components/GallerySlideshow';
 import HeroBgSlideshow from '../components/HeroBgSlideshow';
 import ContactIcons from '../components/ContactIcons';
 import MediaLightbox from '../components/MediaLightbox';
-import { IconServices, IconGallery } from '../components/FooterIcons';
+import { IconServices, IconGallery, IconLocation } from '../components/FooterIcons';
 import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
 import './Home.css';
@@ -17,7 +17,7 @@ const SERVICES = [
 
 const TRUST_ITEMS = [
   { label: 'Quality bricks', icon: '🧱' },
-  { label: 'Sirisia, Ndakaru', icon: '📍' },
+  { label: 'Sirisia, Ndakaru', icon: 'location', isLocation: true },
   { label: 'Free quotes', icon: '💬' },
 ];
 
@@ -38,7 +38,11 @@ export default function Home() {
           <div className="hero-content-inner">
             <h1 className="hero-title">Ndakaru Bricks & Construction</h1>
             <p className="hero-tagline">Quality bricks & construction from Sirisia, Ndakaru — Bungoma County</p>
-            <p className="hero-location">&#128205; Sirisia, Ndakaru — Bungoma County, Kenya</p>
+            <div className="hero-location-badge" aria-label="Location">
+              <span className="hero-location-icon" aria-hidden><IconLocation /></span>
+              <span className="hero-location-text"><strong>Sirisia, Ndakaru</strong> — Bungoma County, Kenya</span>
+            </div>
+            <p className="hero-trust-line">We respond within 24 hours.</p>
             <div className="hero-cta">
               <Link to="/get-a-quote" className="btn-primary">Get a Free Quote</Link>
               <Link to="/gallery" className="btn-hero-gallery">View Gallery</Link>
@@ -74,8 +78,12 @@ export default function Home() {
           <div className="home-welcome">
             <p className="home-welcome-label"><span className="home-welcome-icon" aria-hidden="true">🤝</span> Your Local Partner</p>
             <h2 className="home-welcome-title">Welcome to Ndakaru Bricks & Construction</h2>
+            <div className="home-welcome-location">
+              <span className="home-welcome-location-icon" aria-hidden><IconLocation /></span>
+              <span>Sirisia, Ndakaru — Bungoma County, Kenya</span>
+            </div>
             <p className="home-welcome-text">
-              Based in <strong>Sirisia, Ndakaru — Bungoma County</strong>. We make quality bricks and deliver construction that builds homes and futures. Your local partner.
+              Based in <strong>Sirisia, Ndakaru</strong>. We make quality bricks and deliver construction that builds homes and futures. Your local partner.
             </p>
             <div className="home-welcome-links">
               <Link to="/about" className="home-link">About</Link>
@@ -124,8 +132,8 @@ export default function Home() {
         <div className="container">
           <div className="home-trust-grid">
             {TRUST_ITEMS.map((t, i) => (
-              <div key={i} className="home-trust-item">
-                <span className="home-trust-icon" aria-hidden="true">{t.icon}</span>
+              <div key={i} className={`home-trust-item ${t.isLocation ? 'home-trust-item--location' : ''}`}>
+                <span className="home-trust-icon" aria-hidden="true">{t.isLocation ? <IconLocation /> : t.icon}</span>
                 <span className="home-trust-label">{t.label}</span>
               </div>
             ))}
