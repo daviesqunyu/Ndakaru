@@ -42,6 +42,11 @@ export const GALLERY_MEDIA = [
   { type: 'video', src: IMG('our boys arranging and tranporting bricks to safehouse.mp4'), title: 'Our boys arranging & transporting bricks to safehouse', category: 'Production' },
   { type: 'video', src: IMG('Bricks taken to sfehouse for later burning.mp4'), title: 'Bricks taken to safehouse for later burning', category: 'Production' },
   { type: 'video', src: IMG('Women helping in brick arrangemnt.mp4'), title: 'Women helping in brick arrangement', category: 'Team' },
+  { type: 'video', src: IMG('Bricks being arranged for drying.mp4'), title: 'Bricks being arranged for drying', category: 'Production' },
+  { type: 'video', src: IMG('Transporting Bricks to safehouse using wheelbarrows.mp4'), title: 'Transporting bricks to safehouse using wheelbarrows', category: 'Production' },
+  { type: 'video', src: IMG('Preparing Soil to Produce Bricks.mp4'), title: 'Preparing soil to produce bricks', category: 'Production' },
+  { type: 'video', src: IMG('Workers Making new bricks s.mp4'), title: 'Workers making new bricks', category: 'Production' },
+  { type: 'video', src: IMG('workers eating lunch after hardwork making bricks.mp4'), title: 'Workers eating lunch after hard work making bricks', category: 'Team' },
 ];
 
 // Backwards compatibility: images-only list for grids that only show images
