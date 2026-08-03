@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build output (Vercel builds from source)
+dist/
+
+# Env and logs
+.env
+.env.*
+*.log
+.DS_Store
+
+# Internal / planning (not for deploy)
+NDAKARU-NEXT-IDEAS.md
