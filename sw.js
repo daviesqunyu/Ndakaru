@@ -1,5 +1,5 @@
 // Ndakaru Construction PWA - Service Worker (offline cache for home page)
-const CACHE_NAME = 'ndakaru-v1';
+const CACHE_NAME = 'ndakaru-v2';
 const urlsToCache = ['/', '/index.html', '/styles.css', '/app.js', '/favicon.svg'];
 
 self.addEventListener('install', function (event) {
