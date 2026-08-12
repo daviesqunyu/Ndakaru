@@ -47,6 +47,13 @@ export const GALLERY_MEDIA = [
   { type: 'video', src: IMG('Preparing Soil to Produce Bricks.mp4'), title: 'Preparing soil to produce bricks', category: 'Production' },
   { type: 'video', src: IMG('Workers Making new bricks s.mp4'), title: 'Workers making new bricks', category: 'Production' },
   { type: 'video', src: IMG('workers eating lunch after hardwork making bricks.mp4'), title: 'Workers eating lunch after hard work making bricks', category: 'Team' },
+  { type: 'video', src: IMG('WORKERS IN OUR WORKING FIELD.mp4'), title: 'Workers in our working field', category: 'Team' },
+  { type: 'video', src: IMG('bricks being counted and arranged before burning.mp4'), title: 'Bricks counted & arranged before burning', category: 'Production' },
+  { type: 'video', src: IMG('bricks being covered to dry and prevent rain from damaging.mp4'), title: 'Covering bricks to dry & protect from rain', category: 'Production' },
+  { type: 'video', src: IMG('our warehouse where we store our bricks before and after burning.mp4'), title: 'Our brick storage warehouse', category: 'Production' },
+  { type: 'video', src: IMG('our work station where we make bricks and lay them for drying.mp4'), title: 'Our workstation – making & drying bricks', category: 'Production' },
+  { type: 'video', src: IMG('our workers using water to make bricks.mp4'), title: 'Workers using water to make bricks', category: 'Production' },
+  { type: 'video', src: IMG('preparing hips where we will burn our birkcs.mp4'), title: 'Preparing hips for brick burning', category: 'Production' },
 ];
 
 // Backwards compatibility: images-only list for grids that only show images
