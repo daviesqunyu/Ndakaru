@@ -9,7 +9,7 @@
   padding: 2rem 1rem 4rem;
   box-sizing: border-box;
   cursor: pointer;
-  animation: mediaLightboxFadeIn 0.2s ease;
+  animation: mediaLightboxFadeIn 0.25s ease;
 }
 
 @keyframes mediaLightboxFadeIn {
@@ -34,7 +34,7 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: var(--radius-md, 8px);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -42,7 +42,7 @@
   max-width: 100%;
   max-height: calc(100vh - 5rem);
   width: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius-md, 8px);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   background: #000;
 }
@@ -65,7 +65,8 @@
   height: 48px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
   color: #fff;
   font-size: 2rem;
   line-height: 1;
@@ -73,12 +74,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background 0.25s;
 }
 
 .media-lightbox-close:hover,
 .media-lightbox-close:focus {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.22);
   outline: 2px solid rgba(255, 255, 255, 0.5);
 }
 

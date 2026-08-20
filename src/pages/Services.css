@@ -19,6 +19,9 @@
 @media (max-width: 768px) {
   .page-services .services-grid {
     grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -31,15 +34,16 @@
 
 .page-services .service-tile {
   background: var(--white);
-  border-radius: 20px;
+  border-radius: var(--radius-lg, 16px);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(26, 58, 27, 0.1);
+  box-shadow: 0 2px 16px rgba(26, 58, 27, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
 }
 
 .page-services .service-tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(26, 58, 27, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 58, 27, 0.12);
 }
 
 .page-services .service-tile-img-wrap {
@@ -67,13 +71,14 @@
   left: 12px;
   width: 48px;
   height: 48px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .page-services .service-tile-body {
