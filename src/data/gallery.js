@@ -54,6 +54,12 @@ export const GALLERY_MEDIA = [
   { type: 'video', src: IMG('our work station where we make bricks and lay them for drying.mp4'), title: 'Our workstation – making & drying bricks', category: 'Production' },
   { type: 'video', src: IMG('our workers using water to make bricks.mp4'), title: 'Workers using water to make bricks', category: 'Production' },
   { type: 'video', src: IMG('preparing hips where we will burn our birkcs.mp4'), title: 'Preparing hips for brick burning', category: 'Production' },
+  // New additions
+  { type: 'video', src: IMG('WATER BEING USED TO MAKE BRICKS FROM SCRATCH.mov'), title: 'Water being used to make bricks from scratch', category: 'Production' },
+  { type: 'video', src: IMG('WATER AND SOIL MIXED TO MAD AND READY TO MAKE BRICKS.mov'), title: 'Water and soil mixed to mud and ready to make bricks', category: 'Production' },
+  { type: 'video', src: IMG('OUR WORK FIELD AND PROGRESS WE ARE MAKING EVERYDAY.mov'), title: 'Our work field and progress we are making everyday', category: 'Team' },
+  { type: 'video', src: IMG('MAD FOOR MANUFACTURING BRICKS BEING MADE BY OUR WORKERS.mov'), title: 'Mud for manufacturing bricks being made by our workers', category: 'Production' },
+  { type: 'image', src: IMG('IMAGE SHOWING OUR WORK FIELD BEING BRICKS BEING DRIED.jpeg'), title: 'Our work field showing bricks being dried', category: 'Production' },
 ];
 
 // Backwards compatibility: images-only list for grids that only show images
