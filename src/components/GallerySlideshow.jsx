@@ -13,18 +13,13 @@ export default function GallerySlideshow({ onOpenLightbox }) {
   const videoRefs = useRef({});
 
   const total = GALLERY_MEDIA.length;
+
   const goTo = useCallback((i) => {
     setIndex((prev) => (i + total) % total);
   }, [total]);
 
-  const next = useCallback(() => goTo(index + 1), [index, goTo]);
-  const prev = useCallback(() => goTo(index - 1), [index, goTo]);
-
-  const startAutoplay = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    timerRef.current = setInterval(next, AUTOPLAY_MS);
-  }, [next]);
+  const next = useCallback(() => setIndex((i) => (i + 1) % total), [total]);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + total) % total), [total]);
 
   const stopAutoplay = useCallback(() => {
     if (timerRef.current) {
@@ -33,7 +28,12 @@ export default function GallerySlideshow({ onOpenLightbox }) {
     }
   }, []);
 
-  // Pause all videos, play active slide's video
+  const startAutoplay = useCallback(() => {
+    stopAutoplay();
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timerRef.current = setInterval(next, AUTOPLAY_MS);
+  }, [next, stopAutoplay]);
+
   useEffect(() => {
     GALLERY_MEDIA.forEach((slide, i) => {
       const el = videoRefs.current[i];
@@ -42,6 +42,7 @@ export default function GallerySlideshow({ onOpenLightbox }) {
           el.play().catch(() => {});
         } else {
           el.pause();
+          el.currentTime = 0;
         }
       }
     });
@@ -52,6 +53,16 @@ export default function GallerySlideshow({ onOpenLightbox }) {
     return stopAutoplay;
   }, [index, startAutoplay, stopAutoplay]);
 
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+    };
+    const el = containerRef.current;
+    if (el) el.addEventListener('keydown', handleKey);
+    return () => { if (el) el.removeEventListener('keydown', handleKey); };
+  }, [next, prev]);
+
   const onTouchStart = (e) => setTouchStart(e.touches[0].clientX);
   const onTouchEnd = (e) => {
     if (touchStart == null) return;
@@ -60,9 +71,8 @@ export default function GallerySlideshow({ onOpenLightbox }) {
     setTouchStart(null);
   };
 
-  const onKeyDown = (e) => {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+  const handleMediaError = (src) => {
+    setSrcState((prev) => ({ ...prev, [src]: 'placeholder' }));
   };
 
   const getSlideSrc = (slide) => {
@@ -70,11 +80,10 @@ export default function GallerySlideshow({ onOpenLightbox }) {
     return slide.src;
   };
 
-  const handleMediaError = (src) => {
-    setSrcState((prev) => ({ ...prev, [src]: 'placeholder' }));
-  };
-
   if (total === 0) return null;
+
+  const slide = GALLERY_MEDIA[index];
+  const currentSrc = getSlideSrc(slide);
 
   return (
     <div
@@ -85,54 +94,44 @@ export default function GallerySlideshow({ onOpenLightbox }) {
       onMouseLeave={startAutoplay}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      onKeyDown={onKeyDown}
       tabIndex={0}
     >
       <div
         className={`${styles.container} ${onOpenLightbox ? styles.clickable : ''}`}
-        onClick={() => onOpenLightbox?.(GALLERY_MEDIA[index])}
+        onClick={() => onOpenLightbox?.(slide)}
         role={onOpenLightbox ? 'button' : undefined}
         tabIndex={onOpenLightbox ? 0 : undefined}
-        onKeyDown={onOpenLightbox ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenLightbox(GALLERY_MEDIA[index]); } } : undefined}
-        aria-label={onOpenLightbox ? `View current: ${GALLERY_MEDIA[index]?.title}. Click to open full size.` : undefined}
+        onKeyDown={onOpenLightbox ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenLightbox(slide); } } : undefined}
+        aria-label={onOpenLightbox ? `View current: ${slide.title}. Click to open full size.` : undefined}
       >
         <div className={styles.track}>
-          {GALLERY_MEDIA.map((slide, i) => {
-            const currentSrc = getSlideSrc(slide);
-            const isActive = i === index;
-            return (
-              <div
-                key={`${slide.type}-${slide.src}-${i}`}
-                className={isActive ? `${styles.slide} ${styles.active}` : styles.slide}
-                role="tabpanel"
-                aria-hidden={!isActive}
-              >
-                {currentSrc === null ? (
-                  <div className={styles.slidePlaceholder}>
-                    <span>{slide.title}</span>
-                  </div>
-                ) : slide.type === 'video' ? (
-                  <video
-                    ref={(el) => { videoRefs.current[i] = el; }}
-                    src={encodedMediaSrc(slide.src)}
-                    muted
-                    loop
-                    playsInline
-                    className={styles.slideVideo}
-                    aria-label={slide.title}
-                    onError={() => handleMediaError(slide.src)}
-                  />
-                ) : (
-                  <img
-                    src={encodedMediaSrc(slide.src)}
-                    alt={slide.title}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    onError={() => handleMediaError(slide.src)}
-                  />
-                )}
+          <div className={`${styles.slide} ${styles.active}`} role="tabpanel">
+            {currentSrc === null ? (
+              <div className={styles.slidePlaceholder}>
+                <span>{slide.title}</span>
               </div>
-            );
-          })}
+            ) : slide.type === 'video' ? (
+              <video
+                key={`video-${index}`}
+                ref={(el) => { videoRefs.current[index] = el; }}
+                src={encodedMediaSrc(slide.src)}
+                muted
+                loop
+                playsInline
+                className={styles.slideVideo}
+                aria-label={slide.title}
+                onError={() => handleMediaError(slide.src)}
+              />
+            ) : (
+              <img
+                key={`img-${index}`}
+                src={encodedMediaSrc(slide.src)}
+                alt={slide.title}
+                loading="lazy"
+                onError={() => handleMediaError(slide.src)}
+              />
+            )}
+          </div>
         </div>
         <button type="button" className={styles.prev} onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">&#10094;</button>
         <button type="button" className={styles.next} onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">&#10095;</button>
@@ -150,8 +149,8 @@ export default function GallerySlideshow({ onOpenLightbox }) {
           ))}
         </div>
         <p className={styles.caption} aria-live="polite">
-          {GALLERY_MEDIA[index].type === 'video' && <span className={styles.videoBadge}>Video</span>}
-          {GALLERY_MEDIA[index].title}
+          {slide.type === 'video' && <span className={styles.videoBadge}>Video</span>}
+          {slide.title}
         </p>
       </div>
     </div>

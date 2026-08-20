@@ -3,6 +3,7 @@
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  will-change: opacity;
 }
 
 .hero-bg-slide {
@@ -12,10 +13,46 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transform: scale(1.02);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
 }
 
-.hero-bg-slide.active {
+.hero-bg-slide--current {
   opacity: 1;
+  transform: scale(1);
   z-index: 1;
+}
+
+.hero-bg-slide--current.hero-bg-slide--exit {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.hero-bg-slide--next {
+  opacity: 0;
+  z-index: 2;
+}
+
+.hero-bg-slide--next.hero-bg-slide--enter {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-bg-slideshow-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 100%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-slide {
+    transition: opacity 0.3s ease;
+    transform: none;
+  }
+  .hero-bg-slide--current.hero-bg-slide--exit {
+    transform: none;
+  }
 }

@@ -1,28 +1,34 @@
-// Ndakaru Construction PWA - Service Worker (offline cache for home page)
-const CACHE_NAME = 'ndakaru-v2';
-const urlsToCache = ['/', '/index.html', '/styles.css', '/app.js', '/favicon.svg'];
+// Ndakaru Construction PWA - Service Worker (network-first for fresh content)
+const CACHE_NAME = 'ndakaru-v3';
 
 self.addEventListener('install', function (event) {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(urlsToCache.map(function (u) { return new Request(u, { cache: 'reload' }); })).catch(function () {});
+    caches.keys().then(function (names) {
+      return Promise.all(
+        names.filter(function (n) { return n !== CACHE_NAME; }).map(function (n) { return caches.delete(n); })
+      );
     })
   );
-  self.skipWaiting();
+  self.clients.claim();
 });
 
 self.addEventListener('fetch', function (event) {
   if (event.request.method !== 'GET') return;
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then(function (response) {
+        if (response && response.status === 200) {
+          var clone = response.clone();
+          caches.open(CACHE_NAME).then(function (cache) { cache.put(event.request, clone); });
+        }
+        return response;
+      })
+      .catch(function () {
+        return caches.match(event.request);
+      })
   );
-});
-
-self.addEventListener('activate', function (event) {
-  event.waitUntil(caches.keys().then(function (names) {
-    return Promise.all(names.filter(function (n) { return n !== CACHE_NAME; }).map(function (n) { return caches.delete(n); }));
-  }));
-  self.clients.claim();
 });
