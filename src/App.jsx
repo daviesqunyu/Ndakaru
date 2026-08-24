@@ -10,6 +10,7 @@ import GetAQuote from './pages/GetAQuote';
 import Impact from './pages/Impact';
 import Support from './pages/Support';
 import Blog from './pages/Blog';
+import Proposal from './pages/Proposal';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/impact" element={<Impact />} />
         <Route path="/support" element={<Support />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/proposal" element={<Proposal />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

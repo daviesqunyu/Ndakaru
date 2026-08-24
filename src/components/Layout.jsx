@@ -126,6 +126,7 @@ export default function Layout({ children }) {
               <ul>
                 <li><Link to="/impact"><span className="footer-icon" aria-hidden><IconImpact /></span> Impact</Link></li>
                 <li><Link to="/support"><span className="footer-icon" aria-hidden><IconSupport /></span> Support</Link></li>
+                <li><Link to="/proposal"><span className="footer-icon" aria-hidden><IconBlog /></span> Official Proposal</Link></li>
               </ul>
             </div>
             <div className="footer-contact">

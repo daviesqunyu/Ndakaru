@@ -60,6 +60,11 @@ export const GALLERY_MEDIA = [
   { type: 'video', src: IMG('OUR WORK FIELD AND PROGRESS WE ARE MAKING EVERYDAY.mov'), title: 'Our work field and progress we are making everyday', category: 'Team' },
   { type: 'video', src: IMG('MAD FOOR MANUFACTURING BRICKS BEING MADE BY OUR WORKERS.mov'), title: 'Mud for manufacturing bricks being made by our workers', category: 'Production' },
   { type: 'image', src: IMG('IMAGE SHOWING OUR WORK FIELD BEING BRICKS BEING DRIED.jpeg'), title: 'Our work field showing bricks being dried', category: 'Production' },
+  // New additions – Aug 24
+  { type: 'video', src: IMG('Bricks being arranged to dry in the sun.mov'), title: 'Bricks being arranged to dry in the sun', category: 'Production' },
+  { type: 'video', src: IMG('A sunny morning in our bricks field works.mov'), title: 'A sunny morning in our brick fields', category: 'Production' },
+  { type: 'video', src: IMG('Bricks drying in the sun days after being manufactured.mov'), title: 'Bricks drying in the sun days after manufacture', category: 'Production' },
+  { type: 'video', src: IMG('Covering bricks at the end of the day to prevent rain damage.mov'), title: 'Covering bricks at the end of the day', category: 'Production' },
 ];
 
 // Backwards compatibility: images-only list for grids that only show images
