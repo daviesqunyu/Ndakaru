@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { SITE_URL, CONTACT, WHATSAPP_URL, PAGE_META, SITE_NAME, SITE_DESCRIPTION } from '../data/site';
 import {
   IconHome, IconInfo, IconServices, IconProjects, IconGallery, IconBlog, IconQuote, IconContact,
@@ -127,6 +127,7 @@ export default function Layout({ children }) {
                 <li><Link to="/impact"><span className="footer-icon" aria-hidden><IconImpact /></span> Impact</Link></li>
                 <li><Link to="/support"><span className="footer-icon" aria-hidden><IconSupport /></span> Support</Link></li>
                 <li><Link to="/proposal"><span className="footer-icon" aria-hidden><IconBlog /></span> Official Proposal</Link></li>
+                <li><Link to="/studio"><span className="footer-icon" aria-hidden><IconGallery /></span> Media Studio</Link></li>
               </ul>
             </div>
             <div className="footer-contact">
@@ -146,6 +147,25 @@ export default function Layout({ children }) {
           </div>
         </div>
       </footer>
+
+      <nav className="bottom-tabs" aria-label="Quick navigation">
+        <NavLink to="/" end className={({ isActive }) => `bottom-tab ${isActive ? 'bottom-tab--active' : ''}`}>
+          <span className="bottom-tab-icon" aria-hidden><IconHome /></span>
+          <span>Home</span>
+        </NavLink>
+        <NavLink to="/gallery" className={({ isActive }) => `bottom-tab ${isActive ? 'bottom-tab--active' : ''}`}>
+          <span className="bottom-tab-icon" aria-hidden><IconGallery /></span>
+          <span>Gallery</span>
+        </NavLink>
+        <NavLink to="/get-a-quote" className={({ isActive }) => `bottom-tab bottom-tab--cta ${isActive ? 'bottom-tab--active' : ''}`}>
+          <span className="bottom-tab-icon" aria-hidden><IconQuote /></span>
+          <span>Quote</span>
+        </NavLink>
+        <button type="button" className="bottom-tab" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+          <span className="bottom-tab-icon" aria-hidden>☰</span>
+          <span>Menu</span>
+        </button>
+      </nav>
 
       <a
         href={WHATSAPP_URL}

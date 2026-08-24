@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
+import { encodedMediaSrc } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
+import useMedia from '../hooks/useMedia';
 import MediaLightbox from '../components/MediaLightbox';
 import { IconLocation } from '../components/FooterIcons';
 import './PageShared.css';
@@ -17,11 +18,12 @@ const FILTERS = [
 export default function Gallery() {
   const [filter, setFilter] = useState('all');
   const [lightboxItem, setLightboxItem] = useState(null);
+  const { media } = useMedia();
 
   const filtered = useMemo(() => {
-    if (filter === 'all') return GALLERY_MEDIA;
-    return GALLERY_MEDIA.filter((m) => m.type === filter);
-  }, [filter]);
+    if (filter === 'all') return media;
+    return media.filter((m) => m.type === filter);
+  }, [filter, media]);
 
   return (
     <div className="page-gallery">
@@ -52,7 +54,7 @@ export default function Gallery() {
             ))}
           </div>
           <p className="gallery-count">
-            {filter === 'all' && `${GALLERY_MEDIA.length} items`}
+            {filter === 'all' && `${media.length} items`}
             {filter === 'image' && `${filtered.length} images`}
             {filter === 'video' && `${filtered.length} videos`}
           </p>

@@ -4,8 +4,8 @@ import GallerySlideshow from '../components/GallerySlideshow';
 import HeroBgSlideshow from '../components/HeroBgSlideshow';
 import ContactIcons from '../components/ContactIcons';
 import MediaLightbox from '../components/MediaLightbox';
-import { IconServices, IconGallery, IconLocation } from '../components/FooterIcons';
-import { GALLERY_MEDIA, encodedMediaSrc } from '../data/gallery';
+import { IconServices, IconGallery, IconLocation, IconQuote } from '../components/FooterIcons';
+import { GALLERY_MEDIA } from '../data/gallery';
 import { BG_IMAGES } from '../data/images';
 import './Home.css';
 
@@ -27,6 +27,13 @@ const INTRO_PHOTOS = [
   { src: BG_IMAGES.building, alt: 'Founder with employees' },
 ];
 
+const QUICK_ACTIONS = [
+  { to: '/get-a-quote', label: 'Get a Quote', desc: 'Free, within 24 hrs', icon: <IconQuote />, cls: 'qa--quote' },
+  { to: '/gallery', label: 'Gallery', desc: `${GALLERY_MEDIA.length}+ photos & videos`, icon: <IconGallery />, cls: 'qa--gallery' },
+  { to: '/services', label: 'Services', desc: 'What we do', icon: <IconServices />, cls: 'qa--services' },
+  { to: '/proposal', label: 'Proposal', desc: '2026 plan & pricing', icon: '📋', cls: 'qa--proposal' },
+];
+
 export default function Home() {
   const [lightboxItem, setLightboxItem] = useState(null);
 
@@ -45,18 +52,32 @@ export default function Home() {
             <p className="hero-trust-line">We respond within 24 hours.</p>
             <div className="hero-cta">
               <Link to="/get-a-quote" className="btn-primary">Get a Free Quote</Link>
-              <Link to="/gallery" className="btn-hero-gallery">View Gallery</Link>
               <Link to="/projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
         </div>
-        <a href="#our-work" className="hero-scroll-hint" aria-label="Scroll to Our Work">
+        <a href="#quick-actions" className="hero-scroll-hint" aria-label="Scroll to quick actions">
           <span className="chevron" aria-hidden="true" />
           <span>Explore</span>
         </a>
       </section>
 
-      {/* Our Work — Project Gallery slideshow (right below hero) */}
+      {/* Quick actions — app-style launcher */}
+      <section id="quick-actions" className="home-quick-actions">
+        <div className="container">
+          <div className="qa-grid">
+            {QUICK_ACTIONS.map((a) => (
+              <Link key={a.to} to={a.to} className={`qa-tile ${a.cls}`}>
+                <span className="qa-icon" aria-hidden>{a.icon}</span>
+                <strong>{a.label}</strong>
+                <span className="qa-desc">{a.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Work — Project Gallery slideshow */}
       <section id="our-work" className="home-our-work">
         <div className="container">
           <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> Our work</p>
@@ -138,42 +159,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <ContactIcons variant="dark" />
-        </div>
-      </section>
-
-      <section id="gallery" className="gallery-section">
-        <div className="container">
-          <p className="section-label"><span className="section-label-icon" aria-hidden><IconGallery /></span> More from the gallery</p>
-          <h2>Gallery Grid</h2>
-          <p className="gallery-section-desc">Browse all photos and videos from Ndakaru.</p>
-          <div className="gallery-grid">
-            {GALLERY_MEDIA.map((item, i) => (
-              <div
-                key={`${item.type}-${item.src}-${i}`}
-                className="gallery-card gallery-card-clickable"
-                data-category={item.category}
-                role="button"
-                tabIndex={0}
-                onClick={() => setLightboxItem(item)}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLightboxItem(item); } }}
-                aria-label={`View ${item.type === 'video' ? 'video' : 'image'}: ${item.title}`}
-              >
-                {item.type === 'video' ? (
-                  <video src={encodedMediaSrc(item.src)} muted loop playsInline preload="metadata" aria-hidden />
-                ) : (
-                  <img src={encodedMediaSrc(item.src)} alt="" loading="lazy" />
-                )}
-                <span className="gallery-caption">{item.type === 'video' ? '▶ ' : ''}{item.title}</span>
-              </div>
-            ))}
-          </div>
-          {lightboxItem && <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
-          <div className="gallery-actions">
-            <Link to="/gallery" className="btn-cta-primary">View full gallery</Link>
-            <Link to="/projects" className="btn-cta-secondary">View Projects</Link>
-            <ContactIcons variant="default" />
-          </div>
         </div>
       </section>
 
@@ -183,6 +168,8 @@ export default function Home() {
           <ContactIcons variant="dark" />
         </div>
       </section>
+
+      {lightboxItem && <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
     </div>
   );
 }
