@@ -6,6 +6,7 @@ import './Proposal.css';
 const IMG = (name) => `/img/${name}`;
 const enc = (path) => path.split('/').map((p) => encodeURIComponent(p)).join('/');
 const COVER = enc(IMG('IMAGE SHOWING OUR WORK FIELD BEING BRICKS BEING DRIED.jpeg'));
+const PDF_URL = '/docs/Ndakaru-Emergency-Support-Proposal-2026.pdf';
 const DOC_URL = '/docs/Ndakaru-Emergency-Support-Proposal-2026.docx';
 
 export default function Proposal() {
@@ -158,9 +159,11 @@ export default function Proposal() {
           </article>
 
           <div className="proposal-download">
-            <h3>Download the Official Document</h3>
-            <p>Formatted Word document (.docx) — themed, print-ready, and shareable with donors and partners.</p>
-            <a className="btn-download" href={DOC_URL} download>⬇ Download Proposal (.docx)</a>
+            <h3>Read or Download the Official Proposal</h3>
+            <p>A fully branded, colored document — view it right in your browser, or download and share it with donors and partners.</p>
+            <a className="btn-download" href={PDF_URL} target="_blank" rel="noopener noreferrer">📖 View Proposal (PDF)</a>
+            <a className="btn-download btn-download--ghost" href={PDF_URL} download>⬇ Download PDF</a>
+            <a className="btn-download btn-download--ghost" href={DOC_URL} download>⬇ Download Word (.docx)</a>
           </div>
 
           <div className="page-actions" style={{ marginTop: '2rem' }}>

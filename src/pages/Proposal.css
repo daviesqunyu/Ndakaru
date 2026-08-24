@@ -142,3 +142,26 @@
   box-shadow: 0 8px 20px rgba(212, 168, 67, 0.45);
   color: var(--green);
 }
+
+.btn-download--ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  margin-left: 0.6rem;
+}
+
+.btn-download--ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .btn-download {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 0.6rem;
+  }
+  .btn-download--ghost { margin-left: auto; }
+}

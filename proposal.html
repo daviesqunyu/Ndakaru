@@ -114,6 +114,12 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .btn-download:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245,166,35,0.35); }
+    .btn-download--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.65); margin-left: 0.6rem; }
+    .btn-download--ghost:hover { border-color: #F5A623; color: #F5A623; box-shadow: none; }
+    @media (max-width: 640px) {
+      .btn-download { display: block; width: 100%; max-width: 320px; margin: 0 auto 0.6rem; }
+      .btn-download--ghost { margin-left: auto; }
+    }
   </style>
 </head>
 <body>
@@ -304,9 +310,11 @@
       </article>
 
       <div class="download-band reveal">
-        <h3>Download the Official Document</h3>
-        <p>Formatted Word document (.docx) — themed, print-ready, and shareable with donors and partners.</p>
-        <a class="btn-download" href="docs/Ndakaru-Emergency-Support-Proposal-2026.docx" download>⬇ Download Proposal (.docx)</a>
+        <h3>Read or Download the Official Proposal</h3>
+        <p>A fully branded, colored document — view it right in your browser, or download and share it with donors and partners.</p>
+        <a class="btn-download" href="docs/Ndakaru-Emergency-Support-Proposal-2026.pdf" target="_blank" rel="noopener noreferrer">📖 View Proposal (PDF)</a>
+        <a class="btn-download btn-download--ghost" href="docs/Ndakaru-Emergency-Support-Proposal-2026.pdf" download>⬇ Download PDF</a>
+        <a class="btn-download btn-download--ghost" href="docs/Ndakaru-Emergency-Support-Proposal-2026.docx" download>⬇ Download Word (.docx)</a>
       </div>
 
     </div>
