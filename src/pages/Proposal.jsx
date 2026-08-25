@@ -43,7 +43,7 @@ export default function Proposal() {
             <p>
               Phone: +254 755 550 708 / +254 713 947 746<br />
               Email: mildredwepukhulu7@gmail.com<br />
-              Website: https://ndakaru.vercel.app/
+              Website: https://ndakaru.co.ke
             </p>
 
             <h2>1. Executive Summary</h2>
