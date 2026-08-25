@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { addMedia, removeMedia, guessTitle, listMedia } from '../lib/mediaStore';
-import { SUPABASE_CONFIGURED } from '../lib/supabaseClient';
+import { SUPABASE_CONFIGURED, getSupabase } from '../lib/supabaseClient';
 import './Studio.css';
 
 const CATEGORIES = ['Bricks', 'Construction', 'Team', 'Site', 'Warehouse', 'General'];
@@ -16,9 +16,14 @@ function formatSize(bytes) {
 }
 
 export default function Studio() {
-  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem(PIN_KEY) === '1');
+  const [mode, setMode] = useState(() => (SUPABASE_CONFIGURED ? 'checking' : sessionStorage.getItem(PIN_KEY) === '1' ? 'ready' : 'pin'));
   const [pin, setPin] = useState('');
   const [pinError, setPinError] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [authBusy, setAuthBusy] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
 
   const [items, setItems] = useState([]);
   const [queue, setQueue] = useState([]);
@@ -27,19 +32,64 @@ export default function Studio() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (!unlocked) return;
-    listMedia().then(setItems).catch(() => setItems([]));
-  }, [unlocked]);
+    if (!SUPABASE_CONFIGURED) return;
+    let sub = null;
+    getSupabase().then((supabase) => {
+      supabase.auth.getSession().then(({ data }) => {
+        if (data?.session?.user) {
+          setUserEmail(data.session.user.email || '');
+          setMode('ready');
+        } else {
+          setMode('login');
+        }
+      });
+      ({ data: { subscription: sub } } = supabase.auth.onAuthStateChange((_event, session) => {
+        if (session?.user) {
+          setUserEmail(session.user.email || '');
+          setMode('ready');
+        } else {
+          setUserEmail('');
+          setMode('login');
+        }
+      }));
+    });
+    return () => sub?.unsubscribe();
+  }, []);
 
-  const unlock = (e) => {
+  useEffect(() => {
+    if (mode !== 'ready') return;
+    listMedia().then(setItems).catch(() => setItems([]));
+  }, [mode]);
+
+  const unlockPin = (e) => {
     e.preventDefault();
     const expected = import.meta.env.VITE_STUDIO_PIN || 'ndakaru2026';
     if (pin === expected) {
       sessionStorage.setItem(PIN_KEY, '1');
-      setUnlocked(true);
+      setMode('ready');
     } else {
       setPinError('Wrong passcode. Try again.');
     }
+  };
+
+  const signIn = async (e) => {
+    e.preventDefault();
+    setAuthBusy(true);
+    setAuthError('');
+    try {
+      const supabase = await getSupabase();
+      const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+      if (error) setAuthError(error.message);
+    } catch (err) {
+      setAuthError(err.message || 'Sign-in failed');
+    } finally {
+      setAuthBusy(false);
+    }
+  };
+
+  const signOut = async () => {
+    const supabase = await getSupabase();
+    await supabase?.auth.signOut();
   };
 
   const enqueue = useCallback((fileList) => {
@@ -79,24 +129,64 @@ export default function Studio() {
     setItems((list) => list.filter((i) => i.id !== item.id));
   };
 
-  if (!unlocked) {
+  if (mode === 'checking') {
+    return (
+      <div className="studio-page">
+        <div className="container studio-gate"><p className="studio-empty">Checking sign-in…</p></div>
+      </div>
+    );
+  }
+
+  if (mode === 'pin' || mode === 'login') {
+    const isLogin = mode === 'login';
     return (
       <div className="studio-page">
         <div className="container studio-gate">
           <h1>Media Studio</h1>
-          <p className="studio-gate-desc">Enter the studio passcode to upload photos and videos.</p>
-          <form onSubmit={unlock} className="studio-gate-form">
-            <input
-              type="password"
-              value={pin}
-              onChange={(e) => { setPin(e.target.value); setPinError(''); }}
-              placeholder="Passcode"
-              autoFocus
-              aria-label="Studio passcode"
-            />
-            <button type="submit" className="btn-page">Unlock</button>
+          <p className="studio-gate-desc">
+            {isLogin
+              ? 'Sign in with your Ndakaru studio account to upload photos and videos.'
+              : 'Enter the studio passcode to preview the uploader on this device.'}
+          </p>
+          <form onSubmit={isLogin ? signIn : unlockPin} className="studio-gate-form studio-gate-form--col">
+            {isLogin && (
+              <>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => { setEmail(e.target.value); setAuthError(''); }}
+                  placeholder="Email"
+                  autoFocus
+                  autoComplete="username"
+                  aria-label="Email"
+                />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setAuthError(''); }}
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  aria-label="Password"
+                />
+              </>
+            )}
+            {!isLogin && (
+              <input
+                type="password"
+                value={pin}
+                onChange={(e) => { setPin(e.target.value); setPinError(''); }}
+                placeholder="Passcode"
+                autoFocus
+                aria-label="Studio passcode"
+              />
+            )}
+            <button type="submit" className="btn-page" disabled={authBusy}>
+              {authBusy ? 'Signing in…' : isLogin ? 'Sign in' : 'Unlock'}
+            </button>
           </form>
-          {pinError && <p className="studio-error">{pinError}</p>}
+          {(isLogin ? authError : pinError) && (
+            <p className="studio-error">{isLogin ? authError : pinError}</p>
+          )}
           <Link to="/" className="studio-back">Back to site</Link>
         </div>
       </div>
@@ -113,15 +203,20 @@ export default function Studio() {
             <h1>Media Studio</h1>
             <p>Post photos and videos straight to the site — any size.</p>
           </div>
-          <span className={`studio-mode ${SUPABASE_CONFIGURED ? 'studio-mode--live' : ''}`}>
-            {SUPABASE_CONFIGURED ? '● Supabase connected' : '○ Preview mode'}
-          </span>
+          <div className="studio-header-side">
+            <span className={`studio-mode ${SUPABASE_CONFIGURED ? 'studio-mode--live' : ''}`}>
+              {SUPABASE_CONFIGURED ? `● Live${userEmail ? ` · ${userEmail}` : ''}` : '○ Preview mode'}
+            </span>
+            {SUPABASE_CONFIGURED && userEmail && (
+              <button type="button" className="studio-signout" onClick={signOut}>Sign out</button>
+            )}
+          </div>
         </header>
 
         {!SUPABASE_CONFIGURED && (
           <div className="studio-banner">
             Preview mode: uploads stay on this device until Supabase is connected.
-            Add <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code>, run the SQL in <code>supabase/schema.sql</code>, and every device will see new media instantly.
+            Add <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code>, then every device will see new media instantly.
           </div>
         )}
 

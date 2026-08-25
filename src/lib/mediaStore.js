@@ -91,7 +91,7 @@ async function remoteAdd({ file, title, category }) {
   const supabase = await getSupabase();
   const type = detectType(file);
   const safeName = file.name.replace(/[^\w.-]+/g, '-');
-  const path = `${Date.now()}-${safeName}`;
+  const path = `studio/${Date.now()}-${safeName}`;
   const { error: upErr } = await supabase.storage.from(MEDIA_BUCKET).upload(path, file, {
     cacheControl: '3600',
     upsert: false,

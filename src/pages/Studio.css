@@ -64,7 +64,35 @@
   font-size: 0.82em;
 }
 
-/* Gate */
+.studio-header-side {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.studio-signout {
+  border: 1px solid rgba(26, 58, 27, 0.25);
+  background: var(--white);
+  color: var(--green);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.studio-signout:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+.studio-gate-form--col {
+  flex-direction: column;
+  align-items: stretch;
+}
+.studio-gate-form--col input { max-width: none; }
 .studio-gate {
   max-width: 420px;
   text-align: center;

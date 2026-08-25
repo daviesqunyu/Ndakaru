@@ -1,6 +1,6 @@
 -- Ndakaru Media Studio — Supabase setup
--- Run this once in the Supabase SQL Editor (Dashboard → SQL → New query).
--- Then create the storage bucket (see bottom of this file).
+-- Run this ONCE in the Supabase SQL Editor.
+-- It creates the table, the security rules, and the storage bucket in one go.
 
 -- 1) Table that stores metadata for every photo/video posted from /studio
 create table if not exists public.site_media (
@@ -36,27 +36,26 @@ create policy "public can delete media"
   using (true);
 
 -- 3) Storage bucket for the actual files.
--- Run via Dashboard → Storage, or uncomment the block below.
---
--- insert into storage.buckets (id, name, public, file_size_limit)
--- values ('media', 'media', true, null)   -- null = no size cap (set e.g. 2147483648 for 2GB)
--- on conflict (id) do nothing;
---
--- drop policy if exists "public read media files" on storage.objects;
--- create policy "public read media files"
---   on storage.objects for select
---   using (bucket_id = 'media');
---
--- drop policy if exists "public upload media files" on storage.objects;
--- create policy "public upload media files"
---   on storage.objects for insert
---   with check (bucket_id = 'media');
---
--- drop policy if exists "public remove media files" on storage.objects;
--- create policy "public remove media files"
---   on storage.objects for delete
---   using (bucket_id = 'media');
+insert into storage.buckets (id, name, public, file_size_limit)
+values ('media', 'media', true, null)   -- null = no size cap (plan limits apply)
+on conflict (id) do nothing;
 
--- 4) After running this, add these two env vars and rebuild:
---    VITE_SUPABASE_URL=https://<project-ref>.supabase.co
---    VITE_SUPABASE_ANON_KEY=<anon public key>
+drop policy if exists "public read media files" on storage.objects;
+create policy "public read media files"
+  on storage.objects for select
+  using (bucket_id = 'media');
+
+drop policy if exists "public upload media files" on storage.objects;
+create policy "public upload media files"
+  on storage.objects for insert
+  with check (bucket_id = 'media');
+
+drop policy if exists "public remove media files" on storage.objects;
+create policy "public remove media files"
+  on storage.objects for delete
+  using (bucket_id = 'media');
+
+-- 4) After this script succeeds:
+--    Dashboard → Project Settings → API
+--    copy "Project URL"        -> VITE_SUPABASE_URL
+--    copy "anon public" key    -> VITE_SUPABASE_ANON_KEY

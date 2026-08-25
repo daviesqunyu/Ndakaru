@@ -4,6 +4,8 @@ const IMG = (name) => `/img/${name}`;
 
 export function encodedMediaSrc(path) {
   if (!path) return path;
+  // Absolute URLs (remote storage, local previews) must not be re-encoded
+  if (/^(https?:|blob:|data:)/i.test(path)) return path;
   return path.split('/').map((part) => encodeURIComponent(part)).join('/');
 }
 

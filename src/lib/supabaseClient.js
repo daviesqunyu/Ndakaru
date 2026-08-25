@@ -13,7 +13,7 @@ export function getSupabase() {
   if (!SUPABASE_CONFIGURED) return Promise.resolve(null);
   if (!clientPromise) {
     clientPromise = import('@supabase/supabase-js').then(({ createClient }) =>
-      createClient(url, key, { auth: { persistSession: false } })
+      createClient(url, key)
     );
   }
   return clientPromise;

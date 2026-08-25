@@ -602,7 +602,7 @@
   }
 
   /* keep page content clear of the bar; float CTA sits above it */
-  main { padding-bottom: 62px; }
+  .site-footer { margin-bottom: calc(58px + env(safe-area-inset-bottom, 0)); }
   .float-cta { bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
   .back-to-top { bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
 }
